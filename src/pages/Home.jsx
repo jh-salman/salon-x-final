@@ -4,6 +4,7 @@ import CompanyHeader from '../components/CompanyHeader'
 import ClientList from '../components/ClientList'
 import WaitingList from '../components/WaitingList'
 import CurvedLink from '../components/CurvedLink'
+import CurvedPanel from '../components/CurvedPanel'
 
 const Home = () => {
   return (
@@ -18,7 +19,7 @@ const Home = () => {
         position: 'relative',
         overflow: 'hidden',
         height: '100vh',
-        backgroundColor: '#f0f0f0',
+        
         padding: '1rem',
         boxSizing: 'border-box',
         backgroundColor: 'black',
@@ -38,12 +39,20 @@ const Home = () => {
         width: '100%',
         height: '100vh',
         overflow: 'hidden',
+        zIndex:"1"
       }}>
         <CurvedLink />
       </div>
+      {/* <CurvedPanel /> */}
     </div>
 
   )
 }
 
 export default Home
+
+
+
+
+
+

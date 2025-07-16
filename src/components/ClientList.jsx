@@ -7,6 +7,7 @@ const ClientCard = ({ name, service, price, color, isActive, showTimer, clipPath
     borderRadius: '10px',
     marginBottom: '6px',
     padding: '0.25rem 3rem 0.35rem 0.75rem',
+    // width: "150px",
     
     position: 'relative',
     // border: `2px solid ${isActive ? color : 'transparent'}`,
@@ -75,7 +76,8 @@ const ClientCard = ({ name, service, price, color, isActive, showTimer, clipPath
       borderRadius:"10px",
       padding:"2px",
       height:"42px",
-      marginTop:"5px"
+      marginTop:"5px",
+      width:"338px"
   }
 
   return (

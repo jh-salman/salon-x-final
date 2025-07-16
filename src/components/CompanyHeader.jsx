@@ -7,9 +7,10 @@ const CompanyHeader = () => {
             background: 'linear-gradient(to bottom, #00f0ff, black)',
             borderRadius: '12px',
             display: 'inline-block',
-            clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)',
-            width: '400px',
-            height: "70px"
+            clipPath: 'polygon(0 0, 100% 0, 92.5% 100%, 0% 100%)',
+            width: '345px',
+            height: "70px",
+            marginTop:"12%"
         },
         container: {
             display: 'flex',
@@ -20,7 +21,7 @@ const CompanyHeader = () => {
             padding: '5px 2rem',
             color: 'white',
             fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
-            clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)', // ✅ Cor
+            clipPath: 'polygon(0 0, 100% 0, 92.5% 100%, 0% 100%)', // ✅ Cor
             //   width: '400px',
         },
         companyInfo: {
@@ -67,15 +68,8 @@ const CompanyHeader = () => {
     return (
         <div style={styles.containerWrapper}>
             <div style={styles.container}>
-                <div style={styles.companyInfo}>
-                    <span style={styles.companyCode}>HEHC</span>
-                    <span style={styles.companyName}>HARPER ELLIS HAIR CO.</span>
-                </div>
-                <div style={styles.actions}>
-                    <span style={styles.actionText}>Carpe Diem</span>
-                    <h3 style={styles.plusButton}>+</h3>
-                    <h1 style={styles.closeButton}>X</h1>
-                </div>
+             
+               <img src='./Companyname.png' />
             </div>
         </div>
     );

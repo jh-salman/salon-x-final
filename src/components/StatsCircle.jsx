@@ -10,6 +10,12 @@ const StatsCirle = ({ value, label, color }) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: 8 }}>
       <svg height={radius * 2} width={radius * 2}>
+        <defs>
+          <linearGradient id={`gradient-${label}`} x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#2CCEE0" />
+            <stop offset="100%" stopColor="#D60DE5" />
+          </linearGradient>
+        </defs>
         <circle
           stroke="#333"
           fill="transparent"
@@ -19,7 +25,7 @@ const StatsCirle = ({ value, label, color }) => {
           cy={radius}
         />
         <circle
-          stroke={color}
+          stroke={`url(#gradient-${label})`}
           fill="transparent"
           strokeWidth={stroke}
           strokeDasharray={circumference + ' ' + circumference}
