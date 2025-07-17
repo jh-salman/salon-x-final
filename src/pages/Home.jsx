@@ -1,58 +1,97 @@
-import React from 'react'
-import TopStats from '../components/TopStats'
-import CompanyHeader from '../components/CompanyHeader'
-import ClientList from '../components/ClientList'
-import WaitingList from '../components/WaitingList'
-import CurvedLink from '../components/CurvedLink'
-import CurvedPanel from '../components/CurvedPanel'
+import Screen1 from "../screens/screen1"
+import Screen2 from "../screens/Screen2"
+import Screen3 from "../screens/Screen3"
 
-const Home = () => {
+
+function Home() {
+  const itemStyle = {
+    backgroundColor: "#ffffff",
+    borderRadius: "24px",
+    border: "none",
+    // borderImageSource: "linear-gradient(180deg, #FF18EC 7.8%, #5333F1 52.06%, #00E7F9 99.27%)",
+    // borderImageSlice: 1,
+    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+    // display: "flex",
+    // alignItems: "center",
+    // justifyContent: "center",
+    fontSize: "20px",
+    fontWeight: "bold",
+    width: "392px",
+    height: "851px",
+    backgroundColor:"black",
+    overflow:"hidden"
+  }
+
+  const screenWrapper ={
+    background: "linear-gradient(180deg, #FF18EC 7.8%, #5333F1 52.06%, #00E7F9 99.27%)",
+     width: "393px",
+    height: "852px",
+    borderRadius:"24px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding:"2px"
+  }
   return (
     <div style={{
-
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-        margin: '0 auto',
-        position: 'relative',
-        overflow: 'hidden',
-        height: '100vh',
-        
-        padding: '1rem',
-        boxSizing: 'border-box',
-        backgroundColor: 'black',
-
+      width: "100%",
+      height: "auto",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "#f3f4f6",
+      margin: "0"
     }}>
-      <TopStats />
-      <CompanyHeader />
-      <ClientList />
-     <div style={{
-        marginLeft: "-41px"}}>
-             <WaitingList />
-      </div>
       <div style={{
-        position: 'absolute',
-        bottom: '0',
-        left: '215px',
-        width: '100%',
-        height: '100vh',
-        overflow: 'hidden',
-        zIndex:"1"
+        display: "grid",
+        gridTemplateColumns: "393px 393px 393px",
+        gridTemplateRows: "852px 852px 852px",
+        gap: "8px"
       }}>
-        <CurvedLink />
+        <div style={screenWrapper}>
+          <div style={itemStyle}>
+          <Screen1  />
+        </div>
+        </div>
+        <div style={screenWrapper}>
+          <div style={itemStyle}>
+          <Screen2  />
+        </div>
+        </div>
+        <div style={screenWrapper}>
+          <div style={itemStyle}>
+          <Screen3  />
+        </div>
+        </div>
+        <div style={screenWrapper}>
+          <div style={itemStyle}>
+          <Screen1  />
+        </div>
+        </div>
+        <div style={screenWrapper}>
+          <div style={itemStyle}>
+          <Screen1  />
+        </div>
+        </div>
+        <div style={screenWrapper}>
+          <div style={itemStyle}>
+          <Screen1  />
+        </div>
+        </div>
+        <div style={screenWrapper}>
+          <div style={itemStyle}>
+          <Screen1  />
+        </div>
+        </div>
+        <div style={screenWrapper}>
+          <div style={itemStyle}>
+          <Screen1  />
+        </div>
+        </div>
+        
       </div>
-      {/* <CurvedPanel /> */}
     </div>
-
   )
 }
 
 export default Home
-
-
-
-
-
-

@@ -9,7 +9,7 @@ import PhoneMockup3 from "../pages/PhoneMockup3";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element:<PhoneMockup2 />
+    element:<Home />
   },
   {
     path: "/three",
@@ -22,8 +22,8 @@ export const router = createBrowserRouter([
     path:"/phone-mockup",
     element:<Phone />
   },{
-    // path:"/phone-mockup-2",
-    // element:<PhoneMockup2 />
+    path:"/phone-mockup-2",
+    element:<PhoneMockup2 />
   },{
     path:"/phone-mockup-3",
     element:<PhoneMockup3 />

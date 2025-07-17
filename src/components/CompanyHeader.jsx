@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CompanyHeader = () => {
+const CompanyHeader = ({img}) => {
     const styles = {
         containerWrapper: {
             padding: '2px', // For border effect
@@ -79,7 +79,7 @@ const CompanyHeader = () => {
         </style>
         <div className="company-wrapper" style={styles.containerWrapper}>
           <div style={styles.container}>
-            <img src='./Companyname.png' />
+            <img src={img} />
           </div>
         </div>
       </>
