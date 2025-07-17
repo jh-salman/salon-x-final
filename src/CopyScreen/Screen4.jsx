@@ -4,7 +4,7 @@ import { AppContext } from "../context/AppContext";
 import HalfPinkCurved from '../components/HalfPinkCurved';
 import DynamicDate from '../components/DynamicDate';
 import CylinderSlider from '../components/CylinderSlider';
-import Name from '../components/screen4/name';
+// import Name from '../components/screen4/name';
 import Compo from '../components/screen4/Compo';
 import avatarImg from '/avatar.png';
 import shampooImg from '/shampo.png';
@@ -100,7 +100,7 @@ const Screen4 = () => {
                         <p>Jon Klein  541-556-6923   :</p>
                        
                     </div> */}
-            <Name />
+            {/* <Name /> */}
 
           </div>
         </div>
