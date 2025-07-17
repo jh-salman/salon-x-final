@@ -1,5 +1,4 @@
-// import Screen1 from "../screens/Screen1"
-import Screen1 from "../screens/screen1"
+import Screen1 from "../screens/Screen1"
 import Screen2 from "../screens/Screen2"
 import Screen3 from "../screens/Screen3"
 import Screen4 from "../screens/Screen4"
@@ -7,7 +6,6 @@ import Screen4 from "../screens/Screen4"
 
 function Home() {
   const itemStyle = {
-    // backgroundColor: "#ffffff",
     borderRadius: "24px",
     border: "none",
     // borderImageSource: "linear-gradient(180deg, #FF18EC 7.8%, #5333F1 52.06%, #00E7F9 99.27%)",
