@@ -2,7 +2,24 @@ import React from 'react'
 
 function BottomButton() {
     return (
-        <div style={{ display: "flex", justifyContent: "space-between", width: "350px" }}>
+        <>
+            <style>
+            {`
+              @media (min-width: 340px) and (max-width: 360px) {
+                .bottom-button-wrapper {
+                  transform: scale(0.7);
+                  transform-origin: bottom center;
+                }
+              }
+              @media (min-width: 361px) and (max-width: 388px) {
+                .bottom-button-wrapper {
+                  transform: scale(0.8);
+                  transform-origin: bottom center;
+                }
+              }
+            `}
+            </style>
+            <div className="bottom-button-wrapper" style={{ display: "flex", justifyContent: "space-between", width: "330px" }}>
             <div style={{
                 padding: '2px',
                 borderRadius: '10px',
@@ -79,7 +96,8 @@ function BottomButton() {
 
 
 
-        </div >
+            </div>
+        </>
     )
 }
 

@@ -10,7 +10,7 @@ const CompanyHeader = () => {
             clipPath: 'polygon(0 0, 100% 0, 92.5% 100%, 0% 100%)',
             width: '345px',
             height: "70px",
-            marginTop:"12%"
+            marginTop: "12%"
         },
         container: {
             display: 'flex',
@@ -60,18 +60,29 @@ const CompanyHeader = () => {
             color: 'transparent',
             fontWeight: 'bold',
             cursor: 'pointer',
-            margin:" 10px 0"
+            margin: " 10px 0"
         }
 
     };
 
+
     return (
-        <div style={styles.containerWrapper}>
-            <div style={styles.container}>
-             
-               <img src='./Companyname.png' />
-            </div>
+      <>
+        <style>
+          {`
+            @media (min-width: 360px) and (max-width: 380px) {
+              .company-wrapper {
+                width: 80% !important;
+              }
+            }
+          `}
+        </style>
+        <div className="company-wrapper" style={styles.containerWrapper}>
+          <div style={styles.container}>
+            <img src='./Companyname.png' />
+          </div>
         </div>
+      </>
     );
 };
 

@@ -72,7 +72,7 @@ const SvgCircle = () => {
                     // transformOrigin: 'center center',
                     position: 'absolute',
                     top: -25,
-                    left:-20,
+                    left: -20,
                     // width: '80px',
                     // height: '80px',
                     filter: 'drop-shadow(0 0 8px rgba(255, 73, 127, 0.8))'
@@ -94,13 +94,14 @@ const SvgCircle = () => {
                     </svg> */}
 
                     <img style={{
-                    animation: 'spin 4s ease-in-out infinite',
-                    transformOrigin: 'center center',
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '125px',
-                    height: '125px'}} src='./spincircle.png' />
+                        animation: 'spin 8s infinite',
+                        transformOrigin: 'center center',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '125px',
+                        height: '125px'
+                    }} src='./spincircle.png' />
                 </div>
             </div>
             <style>
@@ -117,10 +118,11 @@ const SvgCircle = () => {
 
 const TopStats = () => {
     const pinkColor = "#FF1493"
+    // Only initialize sliderValue once, do not reset it inadvertently
     const [sliderValue, setSliderValue] = useState(50)
     return (
-        <div style={{position: "relative" , margin: '0 auto', textAlign: 'center' }}>
-            <div style={{ marginBottom: '', zIndex: "10",position:"absolute", top:"15%", left:"30%"}}>
+        <div style={{ position: "relative", margin: '0 auto', textAlign: 'center' }}>
+            <div style={{ marginBottom: '', zIndex: "10", position: "absolute", top: "15%", left: "30%" }}>
                 {/* <input
                     type="range"
                     min="0"
@@ -129,23 +131,48 @@ const TopStats = () => {
                    
                     style={{ width: '100%', accentColor: '#FF1493' }}
                 /> */}
-                <CustomSlider value={sliderValue}  onChange={(e) => setSliderValue(Number(e.target.value))} />
+                <CustomSlider
+                    value={sliderValue}
+                    onChange={(e) => {
+                        if (!e || !e.target) return;
+                        const newValue = Number(e.target.value);
+                        if (!isNaN(newValue)) {
+                            setSliderValue(newValue);
+                        }
+                    }}
+                />
 
             </div>
-            <div style={{ width:"370px", height: "210px", position: 'relative' }}>
+            <div style={{ width: "370px", height: "210px", position: 'relative' }}>
                 <div style={{ position: 'absolute', top: '40%', left: "0%" }}>
                     <StatsCircle value={sliderValue} label="Revenue" color={pinkColor} />
                 </div>
-                <div style={{ position: 'absolute', bottom: '-15%', left: "0"}}>
+                <div style={{ position: 'absolute', bottom: '-15%', left: "0" }}>
                     <StatsCircle value={sliderValue} label="Retail" color={pinkColor} />
                 </div>
-                <div style={{ position: 'absolute', top: '40%', right: "10%" }}>
+                <div className="right-circle retention" style={{ position: 'absolute', top: '40%', right: "10%" }}>
                     <StatsCircle value={sliderValue} label="Retention" color={pinkColor} />
                 </div>
-                <div style={{ position: 'absolute', bottom: '-15%', right:"10%" }}>
+                <div className="right-circle service" style={{ position: 'absolute', bottom: '-15%', right: "10%" }}>
                     <StatsCircle value={sliderValue} label="Service" color={pinkColor} />
                 </div>
-                <div style={{
+
+                <style>
+                    {`
+  @media (min-width: 360px) and (max-width: 380px) {
+    .right-circle.retention {
+      right: 17% !important; /* 10% থেকে 30px বেশি ডানে সরানো মানে বামে সরানো */
+    }
+    .right-circle.service {
+      right:17% !important;
+    }
+      .move-left-responsive {
+      left: 40% !important; /* 45% থেকে 5% বামে সরানো */
+    }
+  }
+`}
+                </style>
+                <div className="move-left-responsive"  style={{
                     position: 'absolute',
                     top: '78%',
                     left: '45%',
@@ -157,14 +184,14 @@ const TopStats = () => {
                     justifyContent: 'center',
                     flexDirection: 'column'
                 }}>
-                    <div style={{  height: 160, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                    <div style={{ height: 160, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                         {(sliderValue / 20).toFixed(2) >= 4.5 ? (
                             <Crown size={21} color="#FFD700" weight="fill" />
                         ) : (
                             <div style={{ height: 21 }} />
                         )}
                         <div >
-                             <SvgLogo />
+                            <SvgLogo />
                         </div>
                         <div style={{
                             position: 'absolute',
@@ -191,3 +218,6 @@ const TopStats = () => {
 }
 
 export default TopStats
+
+
+
