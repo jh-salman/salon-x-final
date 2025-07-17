@@ -20,10 +20,14 @@ function CylinderSlider() {
   const fillY = 234 + (totalBarHeight - fillHeight);
 
   return (
-    <div>
+    <div style={{
+      position:"absolute",
+      top:"320px",
+      right:"8px"
+    }}>
       <div style={{ zIndex: -20 }}>
         <svg
-          width="458"
+          width="48"
           height="400"
           viewBox="0 0 458 2005"
           fill="none"
@@ -259,31 +263,31 @@ function CylinderSlider() {
       <div
         style={{
           position: "absolute",
-          top: "540px",
-          left: "695px",
+          top: "253px",
+          right: "12",
 
           zIndex: 5,
 
         }}
       >
-        <img src='/glass-ball.svg' width={78} />
+        <img src='/glass-ball.svg' width={48} />
       </div>
 
       <div
         className={rotateBall ? "rotating-ball" : ""}
         style={{
           position: "absolute",
-          top: "555px",
-          left: "710px",
-          width: "50px",
-          height: "50px",
+          top: "260px",
+          right: "8px",
+          width: "30px",
+          height: "30px",
           borderRadius: "50%",
-          backgroundColor: "#FF6826",
+          // backgroundColor: "#FF6826",
           zIndex: 1,
           boxShadow: "0 0 20px rgba(46, 115, 244, 0.8), 0 0 40px rgba(21, 152, 228, 0.6), 0 0 60px rgba(255, 104, 38, 0.4)",
         }}
       >
-        <svg width="50" height="50" viewBox="0 0 532 532" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="30" height="30" viewBox="0 0 532 532" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g filter="url(#filter0_ii_59_9)">
             <path d="M532 266C532 412.908 412.908 532 266 532C119.092 532 0 412.908 0 266C0 119.092 119.092 0 266 0C412.908 0 532 119.092 532 266Z" fill="url(#paint0_radial_59_9)" />
           </g>
@@ -326,7 +330,7 @@ function CylinderSlider() {
       `}
       </style>
 
-
+{/* 
       <div style={{
         position: 'absolute',
         top: '90%',
@@ -402,7 +406,7 @@ function CylinderSlider() {
           </div>
           muse
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
