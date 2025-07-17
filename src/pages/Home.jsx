@@ -1,6 +1,7 @@
 import Screen1 from "../screens/screen1"
 import Screen2 from "../screens/Screen2"
 import Screen3 from "../screens/Screen3"
+import Screen4 from "../screens/Screen4"
 
 
 function Home() {
@@ -65,7 +66,7 @@ function Home() {
         </div>
         <div style={screenWrapper}>
           <div style={itemStyle}>
-          <Screen1  />
+          <Screen4  />
         </div>
         </div>
         <div style={screenWrapper}>
