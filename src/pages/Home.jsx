@@ -7,7 +7,7 @@ import Screen4 from "../screens/Screen4"
 
 function Home() {
   const itemStyle = {
-    backgroundColor: "#ffffff",
+    // backgroundColor: "#ffffff",
     borderRadius: "24px",
     border: "none",
     // borderImageSource: "linear-gradient(180deg, #FF18EC 7.8%, #5333F1 52.06%, #00E7F9 99.27%)",
