@@ -205,7 +205,7 @@ const Screen4 = () => {
                     <span style={{ fontSize: '14px', color: " #AAAAAA", }}>30 min</span>
                 </div>
                 <p style={{
-                    fontSize: '12px', marginTop: '10px',
+                     marginTop: '10px',
                     fontFamily: " Lato",
                     fontWeight: 400,
                     fontStyle: "Regular",

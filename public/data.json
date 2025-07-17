@@ -1,0 +1,52 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "name": "Claire Mills",
+      "email": "claire.mills@example.com",
+      "phone": "+1-555-123-4567",
+      "appointment": "2025-07-19T10:00:00",
+      "service": "Extension Install",
+      "price": 120,
+      "stylist": "Cristi Curls",
+      "notes": "Prefers light brown color",
+      "image": "/images/claire.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Joshua Mitchell",
+      "email": "joshua.mitchell@example.com",
+      "phone": "+1-555-987-6543",
+      "appointment": "2025-07-19T11:00:00",
+      "service": "Full lived-in colour",
+      "price": 150,
+      "stylist": "Candy Smiles",
+      "notes": "Allergic to some dyes, use sensitive formula",
+      "image": "/images/joshua.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Joe Styles",
+      "email": "joe.styles@example.com",
+      "phone": "+1-555-789-1234",
+      "appointment": "2025-07-19T12:45:00",
+      "service": "Men's haircut & color",
+      "price": 90,
+      "stylist": "Joe Barber",
+      "notes": "Short on sides, fade back",
+      "image": "/images/joe.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Nita Haredoo",
+      "email": "nita.haredoo@example.com",
+      "phone": "+1-555-456-7890",
+      "appointment": "2025-07-19T15:30:00",
+      "service": "Extensions and colour consultation",
+      "price": 75,
+      "stylist": "Nita Specialist",
+      "notes": "New client, evaluate hair texture",
+      "image": "/images/nita.jpg"
+    }
+  ]
+}

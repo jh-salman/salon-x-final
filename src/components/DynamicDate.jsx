@@ -7,10 +7,11 @@ const DynamicDate = () => {
     <div style={{
       position: 'absolute',
       top: '10px',
-      right: '20px',
+      right: '30px',
       fontSize: '16px',
       fontWeight: 'bold',
-      textAlign: 'right'
+      textAlign: 'right',
+      color:"#fff"
     }}>
       {dayName}<br />
       <p style={{ fontWeight: "bold", paddingLeft: "10px", margin: 0 }}>{dayNumber}</p>

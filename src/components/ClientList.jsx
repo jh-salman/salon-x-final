@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AppContext } from '../context/AppContext';
 
-const ClientCard = ({ name, service, price, color, isActive, showTimer, clipPath }) => {
+const ClientCard = ({ name, service, price, color, isActive, showTimer, clipPath, onClick }) => {
   const cardStyle = {
     background: 'black',
     color: 'white',
@@ -81,7 +82,7 @@ const ClientCard = ({ name, service, price, color, isActive, showTimer, clipPath
   }
 
   return (
-    <div style={cardBg}>
+    <div style={{ ...cardBg, cursor: 'pointer' }} onClick={onClick} role="button" tabIndex={0}>
       <div style={cardStyle}>
         <div style={infoStyle}>
           <span style={nameStyle}>{name}</span>
@@ -92,9 +93,11 @@ const ClientCard = ({ name, service, price, color, isActive, showTimer, clipPath
           {showTimer ? (
             <div style={timerStyle}>25</div>
           ) : (
-            <span style={{ color: '#888', fontSize: '0.4rem', textAlign: 'right', lineHeight: '1.2' }}>
+            <div
+              style={{ color: '#888', fontSize: '0.4rem', textAlign: 'right', lineHeight: '1.2', cursor: 'pointer' }}
+            >
               set<br />timer
-            </span>
+            </div>
           )}
         </div>
         {isActive && <div style={circleDot}></div>}
@@ -113,12 +116,18 @@ const ClientList = () => {
 
   };
 
+  const { setCurrentScreen, setSelectedClientData } = useContext(AppContext);
+
   // Unique clipPaths
   const clip1 = 'polygon(0 0, 96% 0, 93% 100%, 0% 100%)';
   const clip2 = 'polygon(0 0, 93% 0, 91% 100%, 0% 100%)';
   const clip3 = 'polygon(0 0, 90.7% 0, 89.8% 100%, 0% 100%)';
   const clip4 = 'polygon(0 0, 89.8% 0, 89.8% 100%, 0% 100%)';
 
+  const handleClientClick = (clientData) => {
+    setSelectedClientData(clientData);
+    setCurrentScreen("screen4");
+  };
 
   return (
     <div style={wrapperStyle}>
@@ -130,6 +139,23 @@ const ClientList = () => {
         isActive={true}
         showTimer={true}
         clipPath={clip1}
+        onClick={() => handleClientClick({
+          name: "Cristi Curls",
+          service: "Extension install",
+          price: 300,
+          color: "#ff5ad8",
+          consultationDate: "7.2.2025",
+          duration: "30 min",
+          notes: "Redken shades EQ 7N. 7WB. No left developer.\nNext time use more 7N\nA Kool dude!!!\nSister in law is pregnant and expecting twins. They just started rebuilding the cabin. Jennifer is going to FSU",
+          services: [
+            { name: "Hair Gloss Treatment", price: 70 },
+            { name: "Blonding Service", price: 120 }
+          ],
+          recommendations: [
+            { name: "Blonding Service", price: 120 }
+          ],
+          homeCare: "Use sulfate-free shampoo and conditioner. Apply hair mask weekly."
+        })}
       />
       <ClientCard
         name="Candy Smiles"
@@ -139,6 +165,23 @@ const ClientList = () => {
         isActive={true}
         showTimer={true}
         clipPath={clip2}
+        onClick={() => handleClientClick({
+          name: "Candy Smiles",
+          service: "Full lived-in color",
+          price: 220,
+          color: "#00d5ff",
+          consultationDate: "8.15.2025",
+          duration: "45 min",
+          notes: "Used Wella Koleston 8/43 and 9/16.\nClient requested warmer tones.\nNext appointment: balayage touch-up.",
+          services: [
+            { name: "Balayage", price: 150 },
+            { name: "Toner Application", price: 60 }
+          ],
+          recommendations: [
+            { name: "Deep Conditioning Treatment", price: 50 }
+          ],
+          homeCare: "Avoid washing hair daily. Use color-protecting shampoo and conditioner."
+        })}
       />
       <ClientCard
         name="Joe Styles"
@@ -148,6 +191,23 @@ const ClientList = () => {
         isActive={true}
         showTimer={true}
         clipPath={clip3}
+        onClick={() => handleClientClick({
+          name: "Joe Styles",
+          service: "Men’s haircut and color",
+          price: 125,
+          color: "#c47aff",
+          consultationDate: "9.5.2025",
+          duration: "40 min",
+          notes: "Used Redken for men’s color.\nTrimmed sides and blended top.\nClient prefers natural look.",
+          services: [
+            { name: "Haircut", price: 60 },
+            { name: "Color Touch-up", price: 65 }
+          ],
+          recommendations: [
+            { name: "Scalp Treatment", price: 40 }
+          ],
+          homeCare: "Use moisturizing shampoo. Avoid heavy styling products."
+        })}
       />
       <ClientCard
         name="Nita Haredoo"
@@ -157,6 +217,9 @@ const ClientList = () => {
         isActive={false}
         showTimer={false}
         clipPath={clip4} 
+        onClick={() => {
+          setCurrentScreen("screen3");
+        }}
       />
     </div>
   );

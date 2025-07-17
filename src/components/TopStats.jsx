@@ -190,7 +190,7 @@ const TopStats = () => {
                         ) : (
                             <div style={{ height: 21 }} />
                         )}
-                        <div >
+                        <div onClick={() => window.location.href = '/screen3'}>
                             <SvgLogo />
                         </div>
                         <div style={{

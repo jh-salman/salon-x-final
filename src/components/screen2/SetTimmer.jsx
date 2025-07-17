@@ -1,4 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { AppContext } from '../../context/AppContext';
+// import Screen4 from '../../CopyScreen/Screen5';
+// import { AppContext } from "../context/AppContext";
+
+// import Screen4 from './screen4';
 
 function SetTimmer() {
     const [minutes, setMinutes] = useState(30);
@@ -7,6 +12,7 @@ function SetTimmer() {
     const [selectedHours, setSelectedHours] = useState(0);
     const [selectedMinutes, setSelectedMinutes] = useState(0);
     const [totalSeconds, setTotalSeconds] = useState(0);
+    const { setCurrentScreen } = useContext(AppContext);
 
     useEffect(() => {
         let timer;
@@ -29,16 +35,23 @@ function SetTimmer() {
     }, [isRunning, seconds, minutes]);
 
     const handleStart = () => {
-        if (!isRunning && minutes === 0 && seconds === 0) {
-            const total = (selectedHours * 60 + selectedMinutes) * 60;
-            setMinutes(Math.floor(total / 60));
-            setSeconds(total % 60);
-            setTotalSeconds(total);
-        } else if (!isRunning && totalSeconds === 0) {
-            const remaining = minutes * 60 + seconds;
-            setTotalSeconds(remaining);
+        if (!isRunning) {
+            let total = (selectedHours * 60 + selectedMinutes) * 60;
+            if (total === 0) {
+                total = minutes * 60 + seconds;
+            }
+            if (total > 0) {
+                const mins = Math.floor(total / 60);
+                const secs = total % 60;
+                setMinutes(mins);
+                setSeconds(secs);
+                setTotalSeconds(total);
+                setIsRunning(true);
+                setCurrentScreen("screen4");
+            }
+        } else {
+            setIsRunning(true);
         }
-        setIsRunning(true);
     };
     const handlePause = () => setIsRunning(false);
     const handleReset = () => {
@@ -59,6 +72,7 @@ function SetTimmer() {
         const remaining = minutes * 60 + seconds;
         return totalSeconds ? ((totalSeconds - remaining) / totalSeconds) * 100 : 0;
     };
+
 
     return (
         <>
@@ -105,7 +119,6 @@ function SetTimmer() {
                         borderRadius: "8px",
                         border: "none",
                         fontSize: "10px",
-                        position: "absolute",
                         right: "90px",
                         top: "50px",
                         position: "absolute"
@@ -125,14 +138,22 @@ function SetTimmer() {
 
                     margin: "auto"
                 }}>
-                    <button style={{
+                    <button
+                      onClick={() => {
+                        handleStart();
+                        setCurrentScreen("screen5");
+                      }}
+                      style={{
                         padding: "6px 15px",
                         backgroundColor: "#d1d5db",
                         color: "#000",
                         borderRadius: "10px",
                         border: "none",
                         fontWeight: "bold"
-                    }} onClick={handleStart}>Start</button>
+                      }}
+                    >
+                      Start
+                    </button>
 
                     <button style={{
                         padding: "6px 15px",

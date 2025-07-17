@@ -330,8 +330,8 @@ function CylinderSlider() {
       `}
       </style>
 
-{/* 
-      <div style={{
+      {/* Muse button */}
+      {/* <div style={{
         position: 'absolute',
         top: '90%',
         left: '50%',
