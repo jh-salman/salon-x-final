@@ -1,3 +1,4 @@
+// import Screen1 from "../screens/Screen1"
 import Screen1 from "../screens/screen1"
 import Screen2 from "../screens/Screen2"
 import Screen3 from "../screens/Screen3"
@@ -71,22 +72,22 @@ function Home() {
         </div>
         <div style={screenWrapper}>
           <div style={itemStyle}>
-          <Screen1  />
+          {/* <Screen1  /> */}
         </div>
         </div>
         <div style={screenWrapper}>
           <div style={itemStyle}>
-          <Screen1  />
+          {/* <Screen1  /> */}
         </div>
         </div>
         <div style={screenWrapper}>
           <div style={itemStyle}>
-          <Screen1  />
+          {/* <Screen1  /> */}
         </div>
         </div>
         <div style={screenWrapper}>
           <div style={itemStyle}>
-          <Screen1  />
+          {/* <Screen1  /> */}
         </div>
         </div>
         
