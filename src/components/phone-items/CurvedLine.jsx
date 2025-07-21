@@ -25,7 +25,7 @@ const CurvedLine = () => {
         top: '-38px',
         left: '-34px',
         opacity: "1",
-        filter: "blur(2px)"
+        // filter: "blur(2px)"
     };
 
     return (

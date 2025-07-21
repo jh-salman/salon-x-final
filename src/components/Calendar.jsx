@@ -35,6 +35,12 @@ const CalendarComponent = () => {
 
   const [currentView, setCurrentView] = useState("day");
   const [currentDate, setCurrentDate] = useState(new Date(2025, 6, 9));
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  const handleAction = (actionType) => {
+    console.log(`${actionType} clicked for`, selectedEvent);
+    setSelectedEvent(null);
+  };
 
   const startOfWeek = moment(currentDate).startOf("week").add(1, "day"); // Start from Monday
   const weekDays = Array.from({ length: 7 }).map((_, i) =>
@@ -206,6 +212,7 @@ const CalendarComponent = () => {
             date={currentDate}
             onNavigate={(date) => setCurrentDate(date)}
             toolbar={false}
+            onSelectEvent={(event) => setSelectedEvent(event)}
             eventPropGetter={(event) => {
               const gradients = {
                 "Cristi Curls": "linear-gradient(135deg, #9b59b6, #e91e63)", // purple-pink
@@ -259,6 +266,73 @@ const CalendarComponent = () => {
           />
         </div>
       </div>
+      {selectedEvent && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            backgroundColor: "rgba(0,0,0,0.6)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 1000
+          }}
+          onClick={() => setSelectedEvent(null)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              backgroundColor: "#111",
+              borderRadius: "16px",
+              padding: "20px",
+              width: "320px",
+              color: "#fff",
+              boxShadow: "0 8px 20px rgba(0,0,0,0.5)"
+            }}
+          >
+            <h3 style={{ marginBottom: "20px", textAlign: "center" }}>
+              {selectedEvent.title.split(" - ")[0]}
+            </h3>
+
+            {["PARK", "MODIFY", "DOUBLE BOOK", "NEW APPOINTMENT", "DELETE"].map(label => (
+              <button
+                key={label}
+                onClick={() => handleAction(label)}
+                style={{
+                  width: "100%",
+                  marginBottom: "10px",
+                  padding: "12px",
+                  fontSize: "14px",
+                  fontWeight: "bold",
+                  borderRadius: "24px",
+                  background: "#101010",
+                  border: "1px solid #555",
+                  color: "#fff",
+                }}
+              >
+                {label}
+              </button>
+            ))}
+
+            <button
+              onClick={() => setSelectedEvent(null)}
+              style={{
+                marginTop: "10px",
+                width: "100%",
+                background: "transparent",
+                border: "none",
+                color: "#aaa",
+                textAlign: "center"
+              }}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
       <style>
         {`
           .custom-calendar .rbc-calendar {

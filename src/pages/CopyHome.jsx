@@ -8,13 +8,13 @@ import Screen4 from '../CopyScreen/Screen5';
 function CopyHome() {
   const [currentScreen, setCurrentScreen] = useState(0);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setCurrentScreen(1);
-    }, 2000); // 2 seconds
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setCurrentScreen(1);
+  //   }, 2000); // 2 seconds
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   const itemStyle = {
     borderRadius: "24px",

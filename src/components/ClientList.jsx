@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
+import { useNavigate } from 'react-router-dom';
 
 const ClientCard = ({ name, service, price, color, isActive, showTimer, clipPath, onClick }) => {
   const cardStyle = {
@@ -87,14 +88,14 @@ const ClientCard = ({ name, service, price, color, isActive, showTimer, clipPath
         <div style={infoStyle}>
           <span style={nameStyle}>{name}</span>
           <span style={serviceStyle}>{service}</span>
-        </div>
+        </div> 
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <span style={priceStyle}>${price}</span>
           {showTimer ? (
             <div style={timerStyle}>25</div>
           ) : (
             <div
-              style={{ color: '#888', fontSize: '0.4rem', textAlign: 'right', lineHeight: '1.2', cursor: 'pointer' }}
+              style={{ color: '#888', fontSize: '0.4rem', textAlign: 'right', lineHeight: '1.2', cursor: 'pointer', paddingLeft:"29px" }}
             >
               set<br />timer
             </div>
@@ -116,17 +117,19 @@ const ClientList = () => {
 
   };
 
-  const { setCurrentScreen, setSelectedClientData } = useContext(AppContext);
+  const { isTimer, setIsTimer} = useContext(AppContext);
 
   // Unique clipPaths
-  const clip1 = 'polygon(0 0, 96% 0, 93% 100%, 0% 100%)';
-  const clip2 = 'polygon(0 0, 93% 0, 91% 100%, 0% 100%)';
-  const clip3 = 'polygon(0 0, 90.7% 0, 89.8% 100%, 0% 100%)';
-  const clip4 = 'polygon(0 0, 89.8% 0, 89.8% 100%, 0% 100%)';
-
+  const clip1 = 'polygon(0 0, 94% 0, 92% 100%, 0% 100%)';
+  const clip2 = 'polygon(0 0, 92% 0, 91% 100%, 0% 100%)';
+  const clip3 = 'polygon(0 0, 91% 0, 91% 100%, 0% 100%)';
+  const clip4 = 'polygon(0 0, 91% 0, 92.5% 100%, 0% 100%)';
+  const navigation = useNavigate();
   const handleClientClick = (clientData) => {
     setSelectedClientData(clientData);
-    setCurrentScreen("screen4");
+    // setCurrentScreen("screen4");
+    navigation("/screen2")
+    
   };
 
   return (
@@ -218,7 +221,10 @@ const ClientList = () => {
         showTimer={false}
         clipPath={clip4} 
         onClick={() => {
-          setCurrentScreen("screen3");
+          setIsTimer(true)
+          setOpenTimerSlider(true);
+          
+          
         }}
       />
     </div>

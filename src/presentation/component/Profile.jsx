@@ -1,34 +1,47 @@
 import React, { useContext, useRef, useState } from 'react';
-import Screen2 from '../CopyScreen/Screen2';
-import { AppContext } from '../context/AppContext';
-// import Screen2 from '../copyscreen/screen2.jsx';
-// import stylistImg from './profile.png'; // make sure to place the image in this path or update accordingly
+import { AppContext } from '../../context/AppContext';
+
 
 function Profile() {
   const buttonRef = useRef(null);
   const [ballAtRight, setBallAtRight] = useState(false);
   const [ballOffset, setBallOffset] = useState(0);
+  const { setSelectSlider, setIsTimer} = useContext(AppContext);
+//   const [showScreen2, setShowScreen2] = useState(false);
 
-const {setIsTimer} = useContext(AppContext)
- const handleMuseClick = () => {
-  if (buttonRef.current) {
-    const buttonWidth = buttonRef.current.offsetWidth - 20;
-    if (!ballAtRight) {
-      setBallOffset(buttonWidth);
 
-    } else {
-      setBallOffset(0);
-      setTimeout(() => {  
-        setIsTimer(false); // disable timer when ball is at right and returning
+
+
+  const handleMuseClick = () => {
+    if (buttonRef.current) {
+      const buttonWidth = buttonRef.current.offsetWidth - 20;
+      const isMovingRight = !ballAtRight;
+
+      setBallOffset(isMovingRight ? buttonWidth : 0);
+      setTimeout(() => {
+        setSelectSlider(isMovingRight);
+        if (!isMovingRight) {
+          setIsTimer(false);
+        }
       }, 300);
+      // context updated after slide
+      setBallAtRight(isMovingRight);
     }
-    setBallAtRight(!ballAtRight);
-  }
-};
+  };
 
 
   return (
-    <div style={{ backgroundColor: 'transparent', width: '393px', height: '200px', padding: '16px', textAlign: 'center', borderRadius: '20px' }}>
+  <div style={{
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    backdropFilter: "blur(5px)",
+    WebkitBackdropFilter: "blur(5px)",
+    width: '360px',
+    height: '250px',
+    borderTopRightRadius: "600px",
+    borderBottomRightRadius: "51px",
+    padding: '16px',
+    textAlign: 'center',
+  }}>
       <div style={{ position: 'relative', marginBottom: '12px' }}>
         <img
           src="./profile.png"
@@ -39,6 +52,7 @@ const {setIsTimer} = useContext(AppContext)
             objectFit: 'cover',
             borderRadius: '16px',
             margin: '0 auto',
+            zIndex:10
           }}
         />
         <div

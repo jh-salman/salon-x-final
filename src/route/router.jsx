@@ -5,25 +5,18 @@ import Cylinder from "../pages/Cylinder";
 import Phone from "../pages/Phone";
 import PhoneMockup2 from "../pages/PhoneMockup2";
 import PhoneMockup3 from "../pages/PhoneMockup3";
-import CopyHome from "../pages/CopyHome";
-import Screen1 from "../screens/Screen1";
-import Screen2 from "../screens/Screen2";
-// import Screen3 from "../screens/Screen3";
-// import Screen4 from "../CopyScreen/Screen5";
-import Screen3 from "../CopyScreen/Screen3";
-import Screen5 from "../CopyScreen/Screen5";
-import Screen4 from "../CopyScreen/Screen4";
+
+import Home from "../presentation/screen/Home";
+import Screen1 from "../presentation/screen/Screen1";
+import Screen2 from "../presentation/screen/Screen2";
 // import Screen4 from "../screens/Screen4";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element:<CopyHome />
+    element:<Home/>
   },
-  {
-    path: "/three",
-    element:<Three />
-  },
+
   {
     path:"/cylinder",
     element:<Cylinder />
@@ -45,18 +38,18 @@ export const router = createBrowserRouter([
     path: "/screen2",
     element: <Screen2 />
   },
-  {
-    path: "/screen3",
-    element: <Screen3 />
-  },
-  {
-    path: "/screen4",
-    element: <Screen4 />
-  },
+  // {
+  //   path: "/screen3",
+  //   element: <Screen3 />
+  // },
+  // {
+  //   path: "/screen4",
+  //   element: <Screen4 />
+  // },
   
-  {
-    path: "/screen5",
-    element: <Screen5 />
-  }
+  // {
+  //   path: "/screen5",
+  //   element: <Screen5 />
+  // }
   
 ]);
