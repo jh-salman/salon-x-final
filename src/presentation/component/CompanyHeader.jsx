@@ -23,7 +23,13 @@ function CompanyHeader() {
                 fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
                 clipPath: 'polygon(0 0, 100% 0, 93.5% 100%, 0% 100%)', // ✅ Cor
             }}>
-                <div onClick={() => window.location.href = "https://lv3.com/?gad_source=1&gad_campaignid=21854289107&gbraid=0AAAAABj5NaAqTlQbtNBMozoKOOa-fhfSr&gclid=EAIaIQobChMIv7jAjqLTjgMVN1R_AB3VZgLaEAAYASAAEgKh9fD_BwE"} style={{ cursor: 'pointer' }}>
+               <div onClick={() =>
+                   window.open(
+                       "https://lv3.com/?gad_source=1&gad_campaignid=21854289107&gbraid=0AAAAABj5NaAqTlQbtNBMozoKOOa-fhfSr&gclid=EAIaIQobChMIv7jAjqLTjgMVN1R_AB3VZgLaEAAYASAAEgKh9fD_BwE",
+                       "_blank",
+                       "noopener,noreferrer"
+                   )
+               } style={{ cursor: 'pointer' }}>
                     <img width={190} src='./levellogo.png' />
                 </div>
                 <p style={{
