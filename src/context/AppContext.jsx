@@ -6,10 +6,11 @@ export const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   const [currentScreen, setCurrentScreen] = useState("screen1");
   const [selectedClient, setSelectedClient] = useState(null);
-  const [selectedClientData, setSelectedClientData] = useState(null);
+  const [selectedClientData, setSelectedClientData] = useState(0);
   const [selectSlider, setSelectSlider] = useState(false);
   const [isTimer, setIsTimer] = useState(false);
   const [openTimerSlider, setOpenTimerSlider] = useState(false);
+  const [layoutSlide, setLayoutSlide] = useState(false);
 
   return (
     <AppContext.Provider
@@ -25,7 +26,9 @@ export const AppProvider = ({ children }) => {
         isTimer,
         setIsTimer,
         openTimerSlider,
-        setOpenTimerSlider
+        setOpenTimerSlider,
+        layoutSlide, 
+        setLayoutSlide
       }}
     >
       {children}

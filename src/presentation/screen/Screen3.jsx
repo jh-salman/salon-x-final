@@ -28,7 +28,12 @@ function Screen3() {
                 width: "100%",
             }}>
                 <button
-                    onClick={() => navigate("/screen1")}
+                    onClick={() => {
+                        navigate("/screen1")
+                        setSelectSlider(false);
+                        setIsTimer(false);
+                        setOpenTimerSlider(false);
+                    }}
                     style={{ display: "flex", flexDirection: "column", alignItems: "center", color: "#fff", background: "none", border: "none" }}
                 >
                     ✂️<span style={{ fontSize: "12px", marginTop: "4px" }}>Stylist</span>

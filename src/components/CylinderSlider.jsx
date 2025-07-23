@@ -21,9 +21,7 @@ function CylinderSlider() {
 
   return (
     <div style={{
-      position:"absolute",
-      top:"320px",
-      right:"8px"
+     
     }}>
       <div style={{ zIndex: -20 }}>
         <svg

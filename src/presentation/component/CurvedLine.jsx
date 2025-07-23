@@ -1,4 +1,5 @@
 import React from 'react'
+import Screen2 from '../screen/Screen2'
 
 function CurvedLine() {
     return (
@@ -31,6 +32,7 @@ function CurvedLine() {
                     stroke="url(#paint0_linear_124_63)"
                     strokeWidth="5" />
             </svg>
+            
 
         </div>
     )

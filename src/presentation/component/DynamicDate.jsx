@@ -1,13 +1,17 @@
+import { useNavigate } from "react-router-dom";
+
 const DynamicDate = () => {
+  const navigate = useNavigate();
   const today = new Date();
   const dayName = today.toLocaleDateString('en-US', { weekday: 'short' }); // e.g. "Thu"
   const dayNumber = today.getDate(); // e.g. 9
 
   return (
-    <div style={{
-      position: 'absolute',
-      top: '20px',
-      right: '15px',
+    <div onClick={() => navigate("/screen3")} style={{
+      
+      // position: 'absolute',
+      // top: '20px',
+      // right: '15px',
       fontSize: '16px',
       fontWeight: 'bold',
       textAlign: 'right',

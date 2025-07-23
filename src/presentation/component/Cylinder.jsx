@@ -21,11 +21,9 @@ function Cylinder() {
 
   return (
     <div style={{
-      position:"absolute",
-      top:"320px",
-      right:"8px"
+      position:"relative"
     }}>
-      <div style={{ zIndex: -20 }}>
+      <div style={{  }}>
         <svg
           width="48"
           height="400"

@@ -9,24 +9,67 @@ import DynamicDate from '../component/DynamicDate'
 import Cylinder from '../component/Cylinder'
 import Muse from '../component/Muse'
 import TimeBar from '../component/TimeBar'
+import { useNavigate } from 'react-router-dom'
 // import CylinderSlider from '../../components/CylinderSlider'
 
 function Screen2() {
-    const { selectedClientData } = useContext(AppContext);
+    const { 
+        selectSlider,
+        setSelectSlider,
+        isTimer,
+        setIsTimer,
+        openTimerSlider,
+        setOpenTimerSlider } = useContext(AppContext);
 
+        // const navigate = useNavigate();
 
-    if (!selectedClientData || Object.keys(selectedClientData).length === 0) {
-        return <div style={{ color: "white", textAlign: "center", marginTop: "50%" }}>Loading client data...</div>;
+    const selectedClientData ={
+         name: "Jon Klein",
+          service: "Full lived-in color",
+          price: 220,
+          color: "#00d5ff",
+          consultationDate: "8.15.2025",
+          duration: "45 min",
+          notes: "Redken shades EQ 7N. 7WB. No left developer.\nNext time use more 7N\nA Kool dude!!!\nSister in law is pregnant and expecting twins. They just\n started rebuilding the cabin. Jennifer is going to FSU",
+          services: [
+            { name: "Balayage", price: 150 },
+            { name: "Toner Application", price: 60 }
+          ],
+          recommendations: [
+            { name: "Deep Conditioning Treatment", price: 50 }
+          ],
+          homeCare: [
+            { name: "Rusk: Rusk COLORxConditioner", price: 25, img:"./img1.png" },
+            { name: "Rusk: Rusk VHAB Shampoo", price: 30, img:"./img2.png" },
+            
+          ]
     }
-
+    
+    // if (!selectedClientData || Object.keys(selectedClientData).length === 0) {
+    //     return <div style={{ color: "white", textAlign: "center", marginTop: "50%" }}>Loading client data...</div>;
+    // }
+    const navigate = useNavigate();
     return (
-        <div style={{ background: "black", }}>
+        <div style={{ position: "relative", height: "100%", width: "100%", }}>
             <div style={{
                 position: "absolute",
-                top: "0",
+                top: "-3px",
                 right: "0"
             }}>
                 <HalfPinkCurved />
+            </div>
+            <div onClick={() => {
+                navigate("/screen1")
+                setSelectSlider(false);
+                setIsTimer(false);
+                setOpenTimerSlider(false);
+            }} style={{
+                position: "absolute",
+                zIndex: "10",
+                top: "10px",
+                left: "10px", color: "#fff", fontSize: "20px"
+            }}>
+                <p  > Back </p>
             </div>
             <div style={{ width: "292px", height: "141px", position: "relative", margin: "10px auto", }} className="profile-and-name-number">
                 <img style={{ position: "absolute", left: "30%" }} src='./avatar.png' />
@@ -35,22 +78,27 @@ function Screen2() {
                 </div>
 
             </div>
-            <div className="date">
+            <div onClick={
+                navigate("/screen3")
+            } className="date" style={{
+                position: "absolute",
+                top: "10px",
+                right: "10px",}}>
                 <DynamicDate />
             </div>
             <div style={{
                 position: "absolute",
                 top: "43%",
-                right: "10px",
+                right: "3px",
             }}>
                 <TimeBar />
             </div>
-            <div className="cylinder">
-                <div style={{position:"absolute", top:"20px", right:"0px", zIndex:"100"}}>
+            <div style={{ position: "absolute", top: "340px", right: "3px", zIndex: "100" }} className="cylinder">
+               
                     <Cylinder />
                     {/* <Muse /> */}
-                </div>
-                
+               
+
             </div>
             <div className="middle-card-section" style={{ position: "absolute", top: "20%", left: "0%", height: "500px", width: "390px", paddingLeft: "12px" }}>
 
@@ -106,7 +154,7 @@ function Screen2() {
                         {selectedClientData?.services?.map((service, index) => (
                             <div key={index} style={{
                                 display: "flex", justifyContent: "space-between", alignItems: "center",
-                                padding: "0 10px", marginTop:"20px",color: " #AAAAAA", fontSize: "12px"
+                                padding: "0 10px", marginTop: "20px", color: " #AAAAAA", fontSize: "12px"
                             }}>
                                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                                     <div style={{
@@ -147,31 +195,32 @@ function Screen2() {
                 </div>
                 {/* Home and Care */}
             </div>
-              <div style={{ marginTop: '20px', position: "absolute",top:"60%",left:"12px", width: "311px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
-                    <div style={{
-                        position: "absolute", top: "-15px", left: "38%"
-                    }}>
-                        <TransparentButton title={"Home Care"} />
-                    </div>
-                    <div style={{ paddingTop: "15px" }}>
-                        {selectedClientData?.homeCare?.map((item, index) => (
-                            <div key={index} style={{
-                                display: "flex", justifyContent: "space-between", alignItems: "center",
-                                padding: "0 10px", color: " #AAAAAA", fontSize: "11px"
-                            }}>
-                                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                                    <div >
-                                        <img src={item.img} />
-                                    </div>
-                                    <span>{item.name}</span>
-                                </div>
-                                <span>${item.price}</span>
-                            </div>
-                        ))}
-                    </div>
+            <div style={{ marginTop: '20px', position: "absolute", top: "60%", left: "12px", width: "311px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
+                <div style={{
+                    position: "absolute", top: "-15px", left: "38%"
+                }}>
+                    <TransparentButton title={"Home Care"} />
                 </div>
-            <div className="messages-button" style={{position:"absolute",
-                top:"660px", left:"33%"
+                <div style={{ paddingTop: "15px" }}>
+                    {selectedClientData?.homeCare?.map((item, index) => (
+                        <div key={index} style={{
+                            display: "flex", justifyContent: "space-between", alignItems: "center",
+                            padding: "0 10px", color: " #AAAAAA", fontSize: "11px"
+                        }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                                <div >
+                                    <img src={item.img} />
+                                </div>
+                                <span>{item.name}</span>
+                            </div>
+                            <span>${item.price}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="messages-button" style={{
+                position: "absolute",
+                top: "660px", left: "33%"
             }}>
                 <TransparentButton title="Messages/update" />
             </div>
