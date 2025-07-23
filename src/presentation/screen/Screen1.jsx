@@ -403,7 +403,7 @@ function Screen1() {
                         <TransparentButton title="Messages/update" />
                     </div>
 
-                    <div className="clientReviewButton" style={{ position: "absolute", bottom: "30px", left: "-16px" }}>
+                    <div onClick={handleIncrease} className="clientReviewButton" style={{ position: "absolute", bottom: "30px", left: "-16px" }}>
                         <ClientReviewButtons />
                     </div>
                     <div className="clientReviewButton" style={{ position: "absolute", bottom: "20px", left: "60px" }}>
