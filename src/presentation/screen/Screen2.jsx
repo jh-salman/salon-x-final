@@ -52,12 +52,13 @@ function Screen2() {
     //     return <div style={{ color: "white", textAlign: "center", marginTop: "50%" }}>Loading client data...</div>;
     // }
     const navigate = useNavigate();
-    const handleIncrease = () => {
-        setThermoValue(prev => {
-            const updated = prev + 20;
-            console.log("Updated thermoValue:", updated);
-            return updated;
-        });
+   const handleIncrease = () => {
+    setThermoValue(prev => {
+        const updated = Math.min(prev + 20, 100); // 100-এর বেশি যাবে না
+        console.log("Updated thermoValue:", updated);
+        return updated;
+    });
+
     };
     return (
         <div style={{ position: "relative", height: "100%", width: "100%", }}>

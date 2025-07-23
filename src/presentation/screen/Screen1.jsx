@@ -26,12 +26,12 @@ function Screen1() {
     // const { isTimer, openTimerSlider, selectSlider } = useContext(AppContext);
     const handleIncrease = () => {
         setThermoValue(prev => {
-            const updated = prev + 20;
+            const updated = Math.min(prev + 20, 100); // 100-এর বেশি যাবে না
             console.log("Updated thermoValue:", updated);
             return updated;
         });
     };
-     
+
     const {
         selectSlider,
         setSelectSlider,
@@ -39,8 +39,8 @@ function Screen1() {
         setIsTimer,
         openTimerSlider,
         setOpenTimerSlider, layoutSlide,
-        setLayoutSlide,   thermoValue, 
-            setThermoValue } = useContext(AppContext);
+        setLayoutSlide, thermoValue,
+        setThermoValue } = useContext(AppContext);
 
     const selectedClientData = {
         name: "Jon Klein",
@@ -66,40 +66,40 @@ function Screen1() {
     const handleSlide = () => {
         setLayoutSlide(true);
     };
-   
+
     return (
         <div style={{ position: "relative", }}>
             <div onClick={handleSlide} style={{ height: "400px", width: "40px", cursor: "pointer", position: "absolute", right: "0", top: "320px", zIndex: "1000" }} className="touchableDiv">
 
             </div>
-             <div
-                        
-                        style={{
-                            position: "absolute",
-                            // background:"blue",
-                            top: "20px",
-                            right: "5px",
-                            zIndex: "10000",
-                            cursor: "pointer",
-                            width: "50px",
-                            height: "50px",
+            <div
 
-                        }}
-                        className="date"
-                    >
-                        <DynamicDate />
-                    </div>
+                style={{
+                    position: "absolute",
+                    // background:"blue",
+                    top: "20px",
+                    right: "5px",
+                    zIndex: "10000",
+                    cursor: "pointer",
+                    width: "50px",
+                    height: "50px",
+
+                }}
+                className="date"
+            >
+                <DynamicDate />
+            </div>
             {/* <div onClick={handleSlide} style={{ height: "40px", width: "50px", background:"red",borderRadius:"50%",cursor: "pointer", position: "absolute", left: "0", top: "320px", zIndex: "1000" }} className="touchableDiv">
 
             </div> */}
 
-            <div style={{ 
-                position: "relative" ,
+            <div style={{
+                position: "relative",
                 transform: layoutSlide ? "translateX(-110%)" : "translateX(0)",
                 transition: "transform 0.5s ease",
-                zIndex:"100"
-                
-                }}>
+                zIndex: "100"
+
+            }}>
                 <div class style={{
                     position: "absolute",
                     // width: "100%",
@@ -229,7 +229,7 @@ function Screen1() {
                 </div>
 
             </div>
-            <div style={{ position: "relative", height: "852px", width: "393px", overflow: "hidden", zIndex:"1" }}>
+            <div style={{ position: "relative", height: "852px", width: "393px", overflow: "hidden", zIndex: "1" }}>
 
 
 
@@ -263,7 +263,7 @@ function Screen1() {
                         </div>
 
                     </div>
-                   
+
                     <div style={{
                         position: "absolute",
                         top: "41%",
