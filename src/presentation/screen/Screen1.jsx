@@ -63,6 +63,9 @@ function Screen1() {
             <div onClick={handleSlide} style={{ height: "400px", width: "40px", cursor: "pointer", position: "absolute", right: "0", top: "320px", zIndex: "1000" }} className="touchableDiv">
 
             </div>
+            {/* <div onClick={handleSlide} style={{ height: "40px", width: "50px", background:"red",borderRadius:"50%",cursor: "pointer", position: "absolute", left: "0", top: "320px", zIndex: "1000" }} className="touchableDiv">
+
+            </div> */}
 
             <div style={{ 
                 position: "relative" ,

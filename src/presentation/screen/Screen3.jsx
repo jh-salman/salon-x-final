@@ -10,7 +10,7 @@ function Screen3() {
         isTimer,
         setIsTimer,
         openTimerSlider,
-        setOpenTimerSlider } = useContext(AppContext);
+        setOpenTimerSlider, setLayoutSlide } = useContext(AppContext);
         const navigate = useNavigate();
     return (
         <div>
@@ -33,6 +33,7 @@ function Screen3() {
                         setSelectSlider(false);
                         setIsTimer(false);
                         setOpenTimerSlider(false);
+                        setLayoutSlide(false);
                     }}
                     style={{ display: "flex", flexDirection: "column", alignItems: "center", color: "#fff", background: "none", border: "none" }}
                 >
