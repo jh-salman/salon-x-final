@@ -63,6 +63,23 @@ function Screen1() {
             <div onClick={handleSlide} style={{ height: "400px", width: "40px", cursor: "pointer", position: "absolute", right: "0", top: "320px", zIndex: "1000" }} className="touchableDiv">
 
             </div>
+             <div
+                        
+                        style={{
+                            position: "absolute",
+                            // background:"blue",
+                            top: "20px",
+                            right: "5px",
+                            zIndex: "10000",
+                            cursor: "pointer",
+                            width: "50px",
+                            height: "50px",
+
+                        }}
+                        className="date"
+                    >
+                        <DynamicDate />
+                    </div>
             {/* <div onClick={handleSlide} style={{ height: "40px", width: "50px", background:"red",borderRadius:"50%",cursor: "pointer", position: "absolute", left: "0", top: "320px", zIndex: "1000" }} className="touchableDiv">
 
             </div> */}
@@ -237,18 +254,7 @@ function Screen1() {
                         </div>
 
                     </div>
-                    <div
-                        onClick={() => navigate("/screen3")}
-                        style={{
-                            position: "absolute",
-                            top: "20px",
-                            right: "30px",
-                            zIndex: "1000"
-                        }}
-                        className="date"
-                    >
-                        <DynamicDate />
-                    </div>
+                   
                     <div style={{
                         position: "absolute",
                         top: "41%",
