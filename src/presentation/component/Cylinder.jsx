@@ -1,8 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext, useEffect } from 'react';
+import { AppContext } from '../../context/AppContext';
 // import GlassBall from './GlassBall';
 
 function Cylinder() {
-  const [progress, setProgress] = useState(50);
+  const { thermoValue, setThermoValue} = useContext(AppContext)
+  const [progress, setProgress] = useState(thermoValue);
+  useEffect(() => {
+    console.log("thermoValue", thermoValue);
+    setProgress(thermoValue);
+  }, [thermoValue]);
   const [rotateBall, setRotateBall] = useState(false);
   // For muse button draggable ball
   const [ballOffset, setBallOffset] = useState(0);
@@ -18,6 +24,8 @@ function Cylinder() {
   const totalBarHeight = 1500;
   const fillHeight = (progress / 100) * totalBarHeight;
   const fillY = 234 + (totalBarHeight - fillHeight);
+
+  console.log("progress", progress);
 
   return (
     <div style={{

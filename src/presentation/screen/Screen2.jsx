@@ -19,7 +19,10 @@ function Screen2() {
         isTimer,
         setIsTimer,
         openTimerSlider,
-        setOpenTimerSlider } = useContext(AppContext);
+        setOpenTimerSlider,
+        thermoValue, 
+        setThermoValue } = useContext(AppContext);
+        
 
         // const navigate = useNavigate();
 
@@ -49,6 +52,13 @@ function Screen2() {
     //     return <div style={{ color: "white", textAlign: "center", marginTop: "50%" }}>Loading client data...</div>;
     // }
     const navigate = useNavigate();
+    const handleIncrease = () => {
+        setThermoValue(prev => {
+            const updated = prev + 20;
+            console.log("Updated thermoValue:", updated);
+            return updated;
+        });
+    };
     return (
         <div style={{ position: "relative", height: "100%", width: "100%", }}>
             <div style={{
@@ -71,7 +81,7 @@ function Screen2() {
             }}>
                 <p  > Back </p>
             </div>
-            <div style={{ width: "292px", height: "141px", position: "relative", margin: "10px auto", }} className="profile-and-name-number">
+            <div onClick={handleIncrease} style={{ width: "292px", height: "141px", position: "relative",pointerEvents: "auto",margin: "10px auto", }} className="profile-and-name-number">
                 <img style={{ position: "absolute", left: "30%" }} src='./avatar.png' />
                 <div style={{ position: "absolute", bottom: "-38%", left: "-10%" }}>
                     <Name />
@@ -102,7 +112,7 @@ function Screen2() {
             <div className="middle-card-section" style={{ position: "absolute", top: "20%", left: "0%", height: "500px", width: "390px", paddingLeft: "12px" }}>
 
                 {/* consultation  */}
-                <div style={{ marginTop: '20px', position: "relative", width: "364px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
+                <div onClick={handleIncrease} style={{ marginTop: '20px', position: "relative", width: "364px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
                     <div style={{
                         position: "absolute", top: "-10px", left: "33%"
                     }}>
@@ -142,7 +152,7 @@ function Screen2() {
                     </p>
                 </div>
 
-                <div style={{ marginTop: '20px', position: "relative", width: "311px", height: "153px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
+                <div onClick={handleIncrease} style={{ marginTop: '20px', position: "relative", width: "311px", height: "153px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
                     <div style={{
                         position: "absolute", top: "-10px", left: "38%"
                     }}>
@@ -194,7 +204,7 @@ function Screen2() {
                 </div>
                 {/* Home and Care */}
             </div>
-            <div style={{ marginTop: '20px', position: "absolute", top: "60%", left: "12px", width: "311px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
+            <div onClick={handleIncrease} style={{ marginTop: '20px', position: "absolute", top: "60%", left: "12px", width: "311px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
                 <div style={{
                     position: "absolute", top: "-15px", left: "38%"
                 }}>

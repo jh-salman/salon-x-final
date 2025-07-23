@@ -24,6 +24,14 @@ function Screen1() {
     const navigate = useNavigate();
     //   const [animateRight, setAnimateRight] = useState(false);
     // const { isTimer, openTimerSlider, selectSlider } = useContext(AppContext);
+    const handleIncrease = () => {
+        setThermoValue(prev => {
+            const updated = prev + 20;
+            console.log("Updated thermoValue:", updated);
+            return updated;
+        });
+    };
+     
     const {
         selectSlider,
         setSelectSlider,
@@ -31,7 +39,8 @@ function Screen1() {
         setIsTimer,
         openTimerSlider,
         setOpenTimerSlider, layoutSlide,
-        setLayoutSlide } = useContext(AppContext);
+        setLayoutSlide,   thermoValue, 
+            setThermoValue } = useContext(AppContext);
 
     const selectedClientData = {
         name: "Jon Klein",
@@ -57,7 +66,7 @@ function Screen1() {
     const handleSlide = () => {
         setLayoutSlide(true);
     };
-
+   
     return (
         <div style={{ position: "relative", }}>
             <div onClick={handleSlide} style={{ height: "400px", width: "40px", cursor: "pointer", position: "absolute", right: "0", top: "320px", zIndex: "1000" }} className="touchableDiv">
@@ -272,7 +281,7 @@ function Screen1() {
                     <div className="middle-card-section" style={{ position: "absolute", top: "20%", left: "0%", height: "500px", width: "390px", paddingLeft: "12px" }}>
 
                         {/* consultation  */}
-                        <div style={{ marginTop: '20px', position: "absolute", left: "10px", width: "360px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
+                        <div onClick={handleIncrease} style={{ marginTop: '20px', position: "absolute", left: "10px", width: "360px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
                             <div style={{
                                 position: "absolute", top: "-10px", left: "33%"
                             }}>
@@ -312,7 +321,7 @@ function Screen1() {
                             </p>
                         </div>
 
-                        <div style={{ marginTop: '20px', position: "absolute", top: "29%", width: "311px", height: "153px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
+                        <div onClick={handleIncrease} style={{ marginTop: '20px', position: "absolute", top: "29%", width: "311px", height: "153px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
                             <div style={{
                                 position: "absolute", top: "-10px", left: "38%"
                             }}>
@@ -364,7 +373,7 @@ function Screen1() {
                         </div>
                         {/* Home and Care */}
                     </div>
-                    <div style={{ marginTop: '20px', position: "absolute", top: "55%", left: "12px", width: "311px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
+                    <div onClick={handleIncrease} style={{ marginTop: '20px', position: "absolute", top: "55%", left: "12px", width: "311px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
                         <div style={{
                             position: "absolute", top: "-15px", left: "38%"
                         }}>
