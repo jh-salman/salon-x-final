@@ -6,6 +6,8 @@ import CompanyHeader from '../component/CompanyHeader';
 import TopStats from '../../components/TopStats';
 import ClientList from '../../components/ClientList';
 import SetTimmer from '../../components/screen2/SetTimmer';
+import WaitingList from '../../components/WaitingList';
+import BottomButton from '../../components/phone-items/BottomButton';
 
 
 function Screen1() {
@@ -86,7 +88,7 @@ function Screen1() {
         </div>
              <div style={{
           position: "absolute",
-          top:"370px",
+          top:"340px",
           left: "0",
           width: "380px",
           height: "250px",
@@ -101,10 +103,29 @@ function Screen1() {
             
 
          </div>  
-        <div className="waiting-list">
+        <div className="waiting-list"
+        style={{
+          position: "absolute",
+          top:"565px",
+          left: "0",
+          width: "380px",
+          height: "250px",
+          zIndex:"2"}}>
+            <WaitingList />
 
         </div>
-        <div className="buttons">
+        <div className="buttons"
+        style={{
+          position: "absolute",
+          backgroundColor:"red",
+          top:"800px",
+        //   bottom:"20px",
+          left: "-15px",
+          background:"black",
+          width: "400px",
+          height: "70px",
+          zIndex:"20"}}>
+            <BottomButton />
 
         </div>
      </div>

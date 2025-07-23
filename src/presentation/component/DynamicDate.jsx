@@ -6,8 +6,8 @@ const DynamicDate = () => {
   return (
     <div style={{
       position: 'absolute',
-      top: '10px',
-      right: '30px',
+      top: '20px',
+      right: '15px',
       fontSize: '16px',
       fontWeight: 'bold',
       textAlign: 'right',

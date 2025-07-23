@@ -1,6 +1,6 @@
 import ClientList from "../components/ClientList"
 import CompanyHeader from "../components/CompanyHeader"
-import DynamicDate from "../components/DynamicDate"
+import DynamicDate from "../presentation/component/DynamicDate"
 import HalfPinkCurved from "../components/HalfPinkCurved"
 import BottomButton from "../components/phone-items/BottomButton"
 import CurvedLine from "../components/phone-items/CurvedLine"

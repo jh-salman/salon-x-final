@@ -7,7 +7,7 @@ function CompanyHeader() {
             background: 'linear-gradient(to bottom, #00f0ff, black)',
             borderRadius: '12px',
             display: 'inline-block',
-            clipPath: 'polygon(0 0, 100% 0, 92.5% 100%, 0% 100%)',
+            clipPath: 'polygon(0 0, 100% 0, 93.5% 100%, 0% 100%)',
             width: '345px',
             height: "70px",
             // marginTop: "12%"
@@ -21,7 +21,7 @@ function CompanyHeader() {
                 padding: '5px 2rem',
                 color: 'white',
                 fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
-                clipPath: 'polygon(0 0, 100% 0, 92.5% 100%, 0% 100%)', // ✅ Cor
+                clipPath: 'polygon(0 0, 100% 0, 93.5% 100%, 0% 100%)', // ✅ Cor
             }}>
                 <div>
                     <img width={190} src='./levellogo.png' />

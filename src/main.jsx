@@ -42,7 +42,7 @@ createRoot(document.getElementById('root')).render(
             fontWeight: "bold",
             width: "100%",
             height: "100%",
-            backgroundColor: "white",
+            backgroundColor: "black",
             overflow: "hidden",
             position: "relative",
             paddingLeft:"15px"

@@ -1,6 +1,6 @@
 import React from 'react';
-import HalfPinkCurved from '../components/HalfPinkCurved';
-import DynamicDate from '../components/DynamicDate';
+import HalfPinkCurved from '../presentation/component/HalfPinkCurved';
+import DynamicDate from '../presentation/component/DynamicDate';
 import CylinderSlider from '../components/CylinderSlider';
 
 const Screen4 = () => {

@@ -31,9 +31,7 @@ const WaitingList = () => {
     }}>
       <style>
       {`
-        .waiting-list {
-          width: 72%;
-        }
+       
         @media (min-width: 360px) and (max-width: 388px) {
           .waiting-card-0 {
             width: 300px !important;
@@ -60,7 +58,7 @@ const WaitingList = () => {
         padding: "20px 10px",
         // background: "black",
         borderRadius: "0",
-        width: "82%",
+        width: "87%",
         background: "linear-gradient(180deg, #2D2D3A 0%, #000000 100%)",
         clipPath:'polygon(0 0, 91% 0, 93% 100%, 0% 100%)'
 
@@ -107,7 +105,7 @@ const WaitingList = () => {
             alignItems: "center",
             padding: "1px",
             // border:" 1px solid",
-            width: index === 0 ? "333px" : index === 1 ? "343px" : "353px",
+              width: index === 0 ? "355px" : index === 1 ? "366.9px" : "383.2px",
             // clipPath: index === 0 ? clip1 : index === 1 ? clip2 : clip3,
             // borderImageSource: "linear-gradient(106.33deg, #FFFFFF 4.13%, rgba(38, 38, 38, 0.42) 12.08%)"
             backgroundColor: "linear-gradient(180deg #fff 100%, #000000 100%)",
@@ -116,7 +114,7 @@ const WaitingList = () => {
 
           }} >
             <div className="waiting-inner" style={{
-              width: index === 0 ? "333px" : index === 1 ? "343px" : "353px",
+                width: index === 0 ? "373px" : index === 1 ? "383px" : "394px",
               background: "linear-gradient(180deg, #2D2D3A 0%, #000000 100%)",
               color: "white",
               height: "40px",

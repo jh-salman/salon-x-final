@@ -124,12 +124,14 @@ const ClientList = () => {
   const clip2 = 'polygon(0 0, 92% 0, 91% 100%, 0% 100%)';
   const clip3 = 'polygon(0 0, 91% 0, 91% 100%, 0% 100%)';
   const clip4 = 'polygon(0 0, 91% 0, 92.5% 100%, 0% 100%)';
+
+  const { setSelectedClientData } = useContext(AppContext);
   const navigation = useNavigate();
+
   const handleClientClick = (clientData) => {
     setSelectedClientData(clientData);
     // setCurrentScreen("screen4");
-    navigation("/screen2")
-    
+    navigation("/screen2");
   };
 
   return (
@@ -149,7 +151,7 @@ const ClientList = () => {
           color: "#ff5ad8",
           consultationDate: "7.2.2025",
           duration: "30 min",
-          notes: "Redken shades EQ 7N. 7WB. No left developer.\nNext time use more 7N\nA Kool dude!!!\nSister in law is pregnant and expecting twins. They just started rebuilding the cabin. Jennifer is going to FSU",
+          notes: "Redken shades EQ 7N. 7WB. No left developer.\n Next time use more 7N \n A Kool dude!!! \n Sister in law is pregnant and expecting twins. They just \n started rebuilding the cabin. Jennifer is going to FSU",
           services: [
             { name: "Hair Gloss Treatment", price: 70 },
             { name: "Blonding Service", price: 120 }
@@ -161,7 +163,7 @@ const ClientList = () => {
         })}
       />
       <ClientCard
-        name="Candy Smiles"
+        name="Jon Klein"
         service="Full lived-in color"
         price={220}
         color="#00d5ff"
@@ -169,13 +171,13 @@ const ClientList = () => {
         showTimer={true}
         clipPath={clip2}
         onClick={() => handleClientClick({
-          name: "Candy Smiles",
+          name: "Jon Klein",
           service: "Full lived-in color",
           price: 220,
           color: "#00d5ff",
           consultationDate: "8.15.2025",
           duration: "45 min",
-          notes: "Used Wella Koleston 8/43 and 9/16.\nClient requested warmer tones.\nNext appointment: balayage touch-up.",
+          notes: "Redken shades EQ 7N. 7WB. No left developer.\nNext time use more 7N\nA Kool dude!!!\nSister in law is pregnant and expecting twins. They just\n started rebuilding the cabin. Jennifer is going to FSU",
           services: [
             { name: "Balayage", price: 150 },
             { name: "Toner Application", price: 60 }
@@ -183,7 +185,11 @@ const ClientList = () => {
           recommendations: [
             { name: "Deep Conditioning Treatment", price: 50 }
           ],
-          homeCare: "Avoid washing hair daily. Use color-protecting shampoo and conditioner."
+          homeCare: [
+            { name: "Rusk: Rusk COLORxConditioner", price: 25, img:"./img1.png" },
+            { name: "Rusk: Rusk VHAB Shampoo", price: 30, img:"./img2.png" },
+            
+          ]
         })}
       />
       <ClientCard

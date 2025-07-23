@@ -19,7 +19,7 @@ function BottomButton() {
               }
             `}
             </style>
-            <div className="bottom-button-wrapper" style={{ display: "flex", justifyContent: "space-between", width: "330px" }}>
+            <div className="bottom-button-wrapper" style={{ display: "flex", justifyContent: "space-between", width: "330px" , marginLeft:"25px"}}>
             <div style={{
                 padding: '2px',
                 borderRadius: '10px',

@@ -7,7 +7,7 @@ const CompanyHeader = ({img}) => {
             background: 'linear-gradient(to bottom, #00f0ff, black)',
             borderRadius: '12px',
             display: 'inline-block',
-            clipPath: 'polygon(0 0, 100% 0, 92.5% 100%, 0% 100%)',
+            clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)',
             width: '345px',
             height: "70px",
             marginTop: "12%"
@@ -21,7 +21,7 @@ const CompanyHeader = ({img}) => {
             padding: '5px 2rem',
             color: 'white',
             fontFamily: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
-            clipPath: 'polygon(0 0, 100% 0, 92.5% 100%, 0% 100%)', // ✅ Cor
+            clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)', // ✅ Cor
             //   width: '400px',
         },
         companyInfo: {

@@ -7,11 +7,11 @@ import CurvedLine from "../components/phone-items/CurvedLine"
 import SetTimmer from "../components/screen2/SetTimmer"
 import TopStats from "../components/TopStats"
 import WaitingList from "../components/WaitingList"
-import DynamicDate from "../components/DynamicDate";
+import DynamicDate from "../presentation/component/DynamicDate";
 import { useContext } from "react"
 import { AppContext } from "../context/AppContext"
 import MiniProfile from "../components/MiniProfile"
-import HalfPinkCurved from "../components/HalfPinkCurved"
+import HalfPinkCurved from "../presentation/component/HalfPinkCurved"
 
 
 function Screen3() {
