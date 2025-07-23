@@ -54,7 +54,7 @@ function Screen2() {
             <div style={{
                 position: "absolute",
                 top: "-3px",
-                right: "0"
+                right: "0px"
             }}>
                 <HalfPinkCurved />
             </div>
@@ -78,12 +78,11 @@ function Screen2() {
                 </div>
 
             </div>
-            <div onClick={
-                navigate("/screen3")
-            } className="date" style={{
+            <div 
+                 className="date" style={{
                 position: "absolute",
                 top: "10px",
-                right: "10px",}}>
+                right: "50px",}}>
                 <DynamicDate />
             </div>
             <div style={{
