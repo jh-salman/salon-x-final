@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { AppContext } from '../../context/AppContext';
+import { useNavigate } from 'react-router-dom';
 // import Screen4 from '../../CopyScreen/Screen5';
 // import { AppContext } from "../context/AppContext";
 
@@ -12,7 +13,8 @@ function SetTimmer() {
     const [selectedHours, setSelectedHours] = useState(0);
     const [selectedMinutes, setSelectedMinutes] = useState(0);
     const [totalSeconds, setTotalSeconds] = useState(0);
-    const { setCurrentScreen } = useContext(AppContext);
+    const { set } = useContext(AppContext);
+    const navigate = useNavigate()
 
     useEffect(() => {
         let timer;
@@ -141,7 +143,7 @@ function SetTimmer() {
                     <button
                       onClick={() => {
                         handleStart();
-                        setCurrentScreen("screen5");
+                        setTimeout(() => navigate("/screen3"), 100);
                       }}
                       style={{
                         padding: "6px 15px",

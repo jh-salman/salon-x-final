@@ -16,7 +16,7 @@ const CalendarComponent = () => {
       resource: { stylist: "Claire Mills" },
     },
     {
-      title: "Candy Smiles - Full lived-in colour",
+      title: "Jon Klein - Full lived-in colour",
       start: new Date(2025, 6, 9, 10, 30),
       end: new Date(2025, 6, 9, 11, 15),
       resource: { stylist: "Joshua Mitchell" },

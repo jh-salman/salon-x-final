@@ -9,6 +9,7 @@ import PhoneMockup3 from "../pages/PhoneMockup3";
 import Home from "../presentation/screen/Home";
 import Screen1 from "../presentation/screen/Screen1";
 import Screen2 from "../presentation/screen/Screen2";
+import Screen3 from "../presentation/screen/Screen3";
 // import Screen4 from "../screens/Screen4";
 
 export const router = createBrowserRouter([
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
     path: "/screen2",
     element: <Screen2 />
   },
+  {
+    path:"/screen3",
+    element:<Screen3 />
+  }
   // {
   //   path: "/screen3",
   //   element: <Screen3 />
