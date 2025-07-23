@@ -10,6 +10,7 @@ import Cylinder from '../component/Cylinder'
 import Muse from '../component/Muse'
 import TimeBar from '../component/TimeBar'
 import { useNavigate } from 'react-router-dom'
+import RebookAndCheckout from '../component/RebookAndCheckout'
 // import CylinderSlider from '../../components/CylinderSlider'
 
 function Screen2() {
@@ -52,13 +53,17 @@ function Screen2() {
     //     return <div style={{ color: "white", textAlign: "center", marginTop: "50%" }}>Loading client data...</div>;
     // }
     const navigate = useNavigate();
-   const handleIncrease = () => {
-    setThermoValue(prev => {
-        const updated = Math.min(prev + 20, 100); // 100-এর বেশি যাবে না
-        console.log("Updated thermoValue:", updated);
-        return updated;
-    });
-
+     const handleIncrease = (e) => {
+        e.stopPropagation();
+        if (e.detail > 1) return;
+        setThermoValue(prev => {
+            const updated = Math.min(prev + 20, 100); // 100-এর বেশি যাবে না
+            // console.log("Updated thermoValue:", updated);
+            return updated;
+        });
+        if (e?.currentTarget) {
+            e.currentTarget.style.border = "1px solid #23a8ff";
+        }
     };
     return (
         <div style={{ position: "relative", height: "100%", width: "100%", }}>
@@ -82,7 +87,7 @@ function Screen2() {
             }}>
                 <p  > Back </p>
             </div>
-            <div onClick={handleIncrease} style={{ width: "292px", height: "141px", position: "relative",pointerEvents: "auto",margin: "10px auto", }} className="profile-and-name-number">
+            <div onClick={(e) => handleIncrease(e)} style={{ width: "292px", height: "141px", position: "relative",pointerEvents: "auto",margin: "10px auto", }} className="profile-and-name-number">
                 <img style={{ position: "absolute", left: "30%" }} src='./avatar.png' />
                 <div style={{ position: "absolute", bottom: "-38%", left: "-10%" }}>
                     <Name />
@@ -113,9 +118,9 @@ function Screen2() {
             <div className="middle-card-section" style={{ position: "absolute", top: "20%", left: "0%", height: "500px", width: "390px", paddingLeft: "12px" }}>
 
                 {/* consultation  */}
-                <div onClick={handleIncrease} style={{ marginTop: '20px', position: "relative", width: "364px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
+                <div onClick={(e) => handleIncrease(e)} style={{ marginTop: '20px', position: "relative", width: "360px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
                     <div style={{
-                        position: "absolute", top: "-10px", left: "33%"
+                        position: "absolute", top: "-10px", left: "35%"
                     }}>
                         <TransparentButton title={"Consultation"} />
                     </div>
@@ -153,7 +158,7 @@ function Screen2() {
                     </p>
                 </div>
 
-                <div onClick={handleIncrease} style={{ marginTop: '20px', position: "relative", width: "311px", height: "153px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
+                <div onClick={(e) => handleIncrease(e)} style={{ marginTop: '20px', position: "relative", width: "311px", height: "153px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
                     <div style={{
                         position: "absolute", top: "-10px", left: "38%"
                     }}>
@@ -205,7 +210,7 @@ function Screen2() {
                 </div>
                 {/* Home and Care */}
             </div>
-            <div onClick={handleIncrease} style={{ marginTop: '20px', position: "absolute", top: "60%", left: "12px", width: "311px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
+            <div onClick={(e) => handleIncrease(e)} style={{ marginTop: '20px', position: "absolute", top: "60%", left: "12px", width: "311px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
                 <div style={{
                     position: "absolute", top: "-15px", left: "38%"
                 }}>
@@ -235,8 +240,9 @@ function Screen2() {
                 <TransparentButton title="Messages/update" />
             </div>
 
-            <div className="clientReviewButton" style={{ position: "absolute", bottom: "1%", left: "-3px" }}>
-                <ClientReviewButtons />
+            <div className="clientReviewButton" style={{ position: "absolute", bottom: "5%", left: "-3px" }}>
+                {/* <ClientReviewButtons /> */}
+                <RebookAndCheckout onClick={handleIncrease} />
             </div>
             <div className="clientReviewButton" style={{ position: "absolute", bottom: "2%", left: "20%" }}>
                 <SocialIink />

@@ -18,18 +18,24 @@ import HalfPinkCurved from '../component/HalfPinkCurved';
 import Name from '../component/Name';
 import ClientReviewButtons from '../component/ClientReviewButtons';
 import SocialIink from '../component/SocialIink';
+import RebookAndCheckout from '../component/RebookAndCheckout';
 
 
 function Screen1() {
     const navigate = useNavigate();
     //   const [animateRight, setAnimateRight] = useState(false);
     // const { isTimer, openTimerSlider, selectSlider } = useContext(AppContext);
-    const handleIncrease = () => {
+    const handleIncrease = (e) => {
+        e.stopPropagation();
+        if (e.detail > 1) return;
         setThermoValue(prev => {
             const updated = Math.min(prev + 20, 100); // 100-এর বেশি যাবে না
-            console.log("Updated thermoValue:", updated);
+            // console.log("Updated thermoValue:", updated);
             return updated;
         });
+        if (e?.currentTarget) {
+            e.currentTarget.style.border = "1px solid #23a8ff";
+        }
     };
 
     const {
@@ -373,13 +379,13 @@ function Screen1() {
                         </div>
                         {/* Home and Care */}
                     </div>
-                    <div onClick={handleIncrease} style={{ marginTop: '20px', position: "absolute", top: "55%", left: "12px", width: "311px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
+                    <div onClick={handleIncrease} style={{ marginTop: '20px', position: "absolute", top: "58%", left: "12px", width: "311px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
                         <div style={{
                             position: "absolute", top: "-15px", left: "38%"
                         }}>
                             <TransparentButton title={"Home Care"} />
                         </div>
-                        <div style={{ paddingTop: "15px" }}>
+                        <div style={{ paddingTop: "25px" }}>
                             {selectedClientData?.homeCare?.map((item, index) => (
                                 <div key={index} style={{
                                     display: "flex", justifyContent: "space-between", alignItems: "center",
@@ -403,8 +409,9 @@ function Screen1() {
                         <TransparentButton title="Messages/update" />
                     </div>
 
-                    <div onClick={handleIncrease} className="clientReviewButton" style={{ position: "absolute", bottom: "30px", left: "-16px" }}>
-                        <ClientReviewButtons />
+                    <div className="clientReviewButton" style={{ position: "absolute", bottom: "50px", left: "-12px" }}>
+                        {/* <ClientReviewButtons /> */}
+                        <RebookAndCheckout onClick={handleIncrease}/>
                     </div>
                     <div className="clientReviewButton" style={{ position: "absolute", bottom: "20px", left: "60px" }}>
                         <SocialIink />
