@@ -1,36 +1,33 @@
 import React, { useContext, useState } from 'react'
-import CurvedLine from '../component/CurvedLine'
-import Profile from '../component/Profile';
+import CurvedLine from '../../component/CurvedLine'
+import Profile from '../../component/Profile';
 import { AppContext } from '../../context/AppContext';
-import CompanyHeader from '../component/CompanyHeader';
-import TopStats from '../../components/TopStats';
-import ClientList from '../../components/ClientList';
-import SetTimmer from '../../components/screen2/SetTimmer';
-import WaitingList from '../../components/WaitingList';
-import BottomButton from '../../components/phone-items/BottomButton';
-import Screen2 from './Screen2';
+import CompanyHeader from '../../component/CompanyHeader';
+import ClientList from '../../component/ClientList';
+import SetTimmer from '../../component/SetTimmer';
+import WaitingList from '../../component/WaitingList';
+import BottomButton from '../../component/BottomButton';
 import { useNavigate } from 'react-router-dom';
-import TransparentButton from '../component/TransparentButton';
-import TimeBar from '../component/TimeBar';
-import Cylinder from '../component/Cylinder';
-import DynamicDate from '../component/DynamicDate';
-import HalfPinkCurved from '../component/HalfPinkCurved';
-import Name from '../component/Name';
-import ClientReviewButtons from '../component/ClientReviewButtons';
-import SocialIink from '../component/SocialIink';
-import RebookAndCheckout from '../component/RebookAndCheckout';
+import TransparentButton from '../../component/TransparentButton';
+import TimeBar from '../../component/TimeBar';
+import Cylinder from '../../component/Cylinder';
+import DynamicDate from '../../component/DynamicDate';
+import HalfPinkCurved from '../../component/HalfPinkCurved';
+import Name from '../../component/Name';
+import SocialIink from '../../component/SocialIink';
+import RebookAndCheckout from '../../component/RebookAndCheckout';
+import TopStats from '../../component/TopStats';
 
 
 function Screen1() {
     const navigate = useNavigate();
-    //   const [animateRight, setAnimateRight] = useState(false);
-    // const { isTimer, openTimerSlider, selectSlider } = useContext(AppContext);
+
     const handleIncrease = (e) => {
         e.stopPropagation();
         if (e.detail > 1) return;
         setThermoValue(prev => {
-            const updated = Math.min(prev + 20, 100); // 100-এর বেশি যাবে না
-            // console.log("Updated thermoValue:", updated);
+            const updated = Math.min(prev + 20, 100);
+           
             return updated;
         });
         if (e?.currentTarget) {
@@ -40,12 +37,9 @@ function Screen1() {
 
     const {
         selectSlider,
-        setSelectSlider,
         isTimer,
-        setIsTimer,
-        openTimerSlider,
-        setOpenTimerSlider, layoutSlide,
-        setLayoutSlide, thermoValue,
+        layoutSlide,
+        setLayoutSlide,
         setThermoValue } = useContext(AppContext);
 
     const selectedClientData = {
@@ -82,7 +76,6 @@ function Screen1() {
 
                 style={{
                     position: "absolute",
-                    // background:"blue",
                     top: "20px",
                     right: "5px",
                     zIndex: "10000",
@@ -95,9 +88,7 @@ function Screen1() {
             >
                 <DynamicDate />
             </div>
-            {/* <div onClick={handleSlide} style={{ height: "40px", width: "50px", background:"red",borderRadius:"50%",cursor: "pointer", position: "absolute", left: "0", top: "320px", zIndex: "1000" }} className="touchableDiv">
-
-            </div> */}
+            
 
             <div style={{
                 position: "relative",
@@ -108,7 +99,6 @@ function Screen1() {
             }}>
                 <div class style={{
                     position: "absolute",
-                    // width: "100%",
                     background: "black",
                     zIndex: "10",
 
@@ -121,15 +111,6 @@ function Screen1() {
                         <CurvedLine />
                     </div>
                     <div style={{
-                        zIndex: "100",
-                        position: "absolute",
-                        top: "0",
-                        left: "0"
-                    }} className="screen2">
-
-                        {/* <Screen2 /> */}
-                    </div>
-                    <div style={{
                     }}>
                         <div style={{
                             position: "absolute",
@@ -137,13 +118,12 @@ function Screen1() {
                             left: "0",
                             width: "380px",
                             height: "250px",
-                            zIndex: "2",        //   backgroundColor: "red",
+                            zIndex: "2",      
                             transition: "transform 0.5s ease",
                             transform: selectSlider ? "translateX(-100%)" : "translateX(0)"
                         }}>
 
                             <Profile />
-
 
                         </div>
 
@@ -153,10 +133,8 @@ function Screen1() {
                             left: "0",
                             width: "380px",
                             height: "250px",
-                            //   backgroundColor: "red",
                             zIndex: '1'
-                            //   transition: "transform 0.5s ease",
-                            //   transform: selectSlider ? "translateX(-100%)" : "translateX(0)"
+                            
                         }}>
                             <TopStats />
 

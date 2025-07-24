@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from 'react';
-import { AppContext } from '../../context/AppContext';
+import { AppContext } from '../context/AppContext';
 
 
 function Profile() {
@@ -78,10 +78,11 @@ function Profile() {
               cursor: 'pointer',
               color: "#FF6826",
               fontSize: "10px",
-              fontWeight: "bold",
+              fontWeight: "900",
               fontFamily: "sans-serif",
               userSelect: "none",
-              position: "relative"
+              position: "relative",
+              textShadow: "0 0 1px #FF6826, 0 0 2px rgba(255,104,38,0.8)"
             }}
           >
             <div

@@ -1,31 +1,25 @@
 import React, { useContext } from 'react'
-import HalfPinkCurved from '../component/HalfPinkCurved'
-import Name from '../component/Name'
-import ClientReviewButtons from '../component/ClientReviewButtons'
-import SocialIink from '../component/SocialIink'
-import TransparentButton from '../component/TransparentButton'
+import '../style/screen2.css';
+import HalfPinkCurved from '../../component/HalfPinkCurved'
+import Name from '../../component/Name'
+import SocialIink from '../../component/SocialIink'
+import TransparentButton from '../../component/TransparentButton'
 import { AppContext } from '../../context/AppContext'
-import DynamicDate from '../component/DynamicDate'
-import Cylinder from '../component/Cylinder'
-import Muse from '../component/Muse'
-import TimeBar from '../component/TimeBar'
+import DynamicDate from '../../component/DynamicDate'
+import Cylinder from '../../component/Cylinder'
+import TimeBar from '../../component/TimeBar'
 import { useNavigate } from 'react-router-dom'
-import RebookAndCheckout from '../component/RebookAndCheckout'
-// import CylinderSlider from '../../components/CylinderSlider'
+import RebookAndCheckout from '../../component/RebookAndCheckout';
+
 
 function Screen2() {
     const { 
-        selectSlider,
-        setSelectSlider,
-        isTimer,
-        setIsTimer,
-        openTimerSlider,
-        setOpenTimerSlider,
-        thermoValue, 
-        setThermoValue } = useContext(AppContext);
         
-
-        // const navigate = useNavigate();
+        setSelectSlider,  
+        setIsTimer,
+        setOpenTimerSlider,
+        setThermoValue } = useContext(AppContext);
+  
 
     const selectedClientData ={
          name: "Jon Klein",
@@ -49,16 +43,14 @@ function Screen2() {
           ]
     }
     
-    // if (!selectedClientData || Object.keys(selectedClientData).length === 0) {
-    //     return <div style={{ color: "white", textAlign: "center", marginTop: "50%" }}>Loading client data...</div>;
-    // }
+   
     const navigate = useNavigate();
      const handleIncrease = (e) => {
         e.stopPropagation();
         if (e.detail > 1) return;
         setThermoValue(prev => {
-            const updated = Math.min(prev + 20, 100); // 100-এর বেশি যাবে না
-            // console.log("Updated thermoValue:", updated);
+            const updated = Math.min(prev + 20, 100); 
+           
             return updated;
         });
         if (e?.currentTarget) {
@@ -66,12 +58,8 @@ function Screen2() {
         }
     };
     return (
-        <div style={{ position: "relative", height: "100%", width: "100%", }}>
-            <div style={{
-                position: "absolute",
-                top: "-3px",
-                right: "0px"
-            }}>
+        <div className="screen2-container">
+            <div className="half-pink-container">
                 <HalfPinkCurved />
             </div>
             <div onClick={() => {
@@ -79,103 +67,58 @@ function Screen2() {
                 setSelectSlider(false);
                 setIsTimer(false);
                 setOpenTimerSlider(false);
-            }} style={{
-                position: "absolute",
-                zIndex: "10",
-                top: "10px",
-                left: "10px", color: "#fff", fontSize: "20px"
-            }}>
-                <p  > Back </p>
+            }} className="back-button">
+                <p > Back </p>
             </div>
-            <div onClick={(e) => handleIncrease(e)} style={{ width: "292px", height: "141px", position: "relative",pointerEvents: "auto",margin: "10px auto", }} className="profile-and-name-number">
-                <img style={{ position: "absolute", left: "30%" }} src='./avatar.png' />
-                <div style={{ position: "absolute", bottom: "-38%", left: "-10%" }}>
+            <div onClick={(e) => handleIncrease(e)} className="profile-and-name-number">
+                <img className="profile-image" src='./avatar.png' />
+                <div className="name-container">
                     <Name />
                 </div>
 
             </div>
-            <div 
-                 className="date" style={{
-                position: "absolute",
-                top: "10px",
-                right: "50px",}}>
+            <div className="date">
                 <DynamicDate />
             </div>
-            <div style={{
-                position: "absolute",
-                top: "43%",
-                right: "3px",
-            }}>
+            <div className="time-bar-container">
                 <TimeBar />
             </div>
-            <div style={{ position: "absolute", top: "340px", right: "3px", zIndex: "100" }} className="cylinder">
+            <div className="cylinder-container">
                
                     <Cylinder />
                     {/* <Muse /> */}
                
 
             </div>
-            <div className="middle-card-section" style={{ position: "absolute", top: "20%", left: "0%", height: "500px", width: "390px", paddingLeft: "12px" }}>
+            <div className="middle-card-section">
 
                 {/* consultation  */}
-                <div onClick={(e) => handleIncrease(e)} style={{ marginTop: '20px', position: "relative", width: "360px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
-                    <div style={{
-                        position: "absolute", top: "-10px", left: "35%"
-                    }}>
+                <div onClick={(e) => handleIncrease(e)} className="consultation-card">
+                    <div className="consultation-button-container">
                         <TransparentButton title={"Consultation"} />
                     </div>
-                    <div style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                    }}>
-                        <span style={{
-                            color: " #AAAAAA",
-                            fontSize: '14px',
-                            display: 'inline-block',
-                            marginRight: '10px',
-                            paddingRight: "20px",
-                            position: 'relative',
-                            top: '10px'
-                        }}>{selectedClientData?.consultationDate}
+                    <div className="consultation-info">
+                        <span className="consultation-date">{selectedClientData?.consultationDate}
                         </span>
-                        <span style={{ fontSize: '14px', color: " #AAAAAA", position: 'relative', top: '10px' }}>
+                        <span className="consultation-duration">
                             {selectedClientData?.duration}</span>
                     </div>
-                    <p style={{
-                        marginTop: '10px',
-                        fontFamily: " Lato",
-                        fontWeight: 400,
-                        fontStyle: "Regular",
-                        fontSize: "12px",
-                        lineHeight: "9.99px",
-                        width: "288px",
-                        paddingBottom: "5px",
-                        color: "white"
-                    }}>
+                    <p className="consultation-notes">
                         <br />
                         {selectedClientData?.notes}
                     </p>
                 </div>
 
-                <div onClick={(e) => handleIncrease(e)} style={{ marginTop: '20px', position: "relative", width: "311px", height: "153px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
-                    <div style={{
-                        position: "absolute", top: "-10px", left: "38%"
-                    }}>
+                <div onClick={(e) => handleIncrease(e)} className="services-card">
+                    <div className="services-button-container">
                         <TransparentButton title={"Services"} />
                     </div>
 
                     <div>
                         {selectedClientData?.services?.map((service, index) => (
-                            <div key={index} style={{
-                                display: "flex", justifyContent: "space-between", alignItems: "center",
-                                padding: "0 10px", marginTop: "20px", color: " #AAAAAA", fontSize: "12px"
-                            }}>
-                                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                                    <div style={{
-                                        width: "10px", height: "10px", borderRadius: "50%",
-                                        backgroundColor: "blue"
-                                    }}></div>
+                            <div key={index} className="service-item">
+                                <div className="service-name-container">
+                                    <div className="service-dot"></div>
                                     <span>{service.name}</span>
                                 </div>
                                 <span>${service.price}</span>
@@ -183,24 +126,16 @@ function Screen2() {
                         ))}
                     </div>
 
-                    <div style={{
-                        position: "absolute", top: "72px", left: "38%"
-                    }}>
+                    <div className="recommendation-button-container">
                         <TransparentButton title={"Recomandation"} />
                     </div>
 
 
-                    <div style={{ position: "absolute", top: "100px", left: "10px", width: "275px" }}>
+                    <div className="recommendation-list">
                         {selectedClientData?.recommendations?.map((rec, index) => (
-                            <div key={index} style={{
-                                display: "flex", justifyContent: "space-between", alignItems: "center",
-                                padding: "10px", color: " #AAAAAA", fontSize: "11px", width: "100%"
-                            }}>
-                                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                                    <div style={{
-                                        width: "10px", height: "10px", borderRadius: "50%",
-                                        backgroundColor: "white"
-                                    }}></div>
+                            <div key={index} className="recommendation-item">
+                                <div className="recommendation-name-container">
+                                    <div className="recommendation-dot"></div>
                                     <span>{rec.name}</span>
                                 </div>
                                 <span>${rec.price}</span>
@@ -210,19 +145,14 @@ function Screen2() {
                 </div>
                 {/* Home and Care */}
             </div>
-            <div onClick={(e) => handleIncrease(e)} style={{ marginTop: '20px', position: "absolute", top: "60%", left: "12px", width: "311px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
-                <div style={{
-                    position: "absolute", top: "-15px", left: "38%"
-                }}>
+            <div onClick={(e) => handleIncrease(e)} className="homecare-card">
+                <div className="homecare-button-container">
                     <TransparentButton title={"Home Care"} />
                 </div>
-                <div style={{ paddingTop: "15px" }}>
+                <div className="homecare-list">
                     {selectedClientData?.homeCare?.map((item, index) => (
-                        <div key={index} style={{
-                            display: "flex", justifyContent: "space-between", alignItems: "center",
-                            padding: "0 10px", color: " #AAAAAA", fontSize: "11px"
-                        }}>
-                            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                        <div key={index} className="homecare-item">
+                            <div className="homecare-name-container">
                                 <div >
                                     <img src={item.img} />
                                 </div>
@@ -233,18 +163,15 @@ function Screen2() {
                     ))}
                 </div>
             </div>
-            <div className="messages-button" style={{
-                position: "absolute",
-                top: "660px", left: "33%"
-            }}>
+            <div className="messages-button">
                 <TransparentButton title="Messages/update" />
             </div>
 
-            <div className="clientReviewButton" style={{ position: "absolute", bottom: "5%", left: "-3px" }}>
+            <div className="client-review-button">
                 {/* <ClientReviewButtons /> */}
                 <RebookAndCheckout onClick={handleIncrease} />
             </div>
-            <div className="clientReviewButton" style={{ position: "absolute", bottom: "2%", left: "20%" }}>
+            <div className="client-review-button social-link-button">
                 <SocialIink />
             </div>
 

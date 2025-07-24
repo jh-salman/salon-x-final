@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { AppContext } from '../context/AppContext';
 import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 
 const ClientCard = ({ name, service, price, color, isActive, showTimer, clipPath, onClick }) => {
   const cardStyle = {

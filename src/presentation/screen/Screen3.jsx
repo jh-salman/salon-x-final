@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
-import CalendarComponent from '../../components/Calendar'
+// import CalendarComponent from '../../components/Calendar'
 import { AppContext } from '../../context/AppContext';
 import { useNavigate } from 'react-router-dom';
+import CalendarComponent from '../../component/Calendar';
 
 function Screen3() {
     const { 
@@ -14,6 +15,7 @@ function Screen3() {
         const navigate = useNavigate();
     return (
         <div>
+            {/* <CalendarComponent /> */}
             <CalendarComponent />
             <div style={{
                 position: "absolute",

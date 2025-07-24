@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { AppContext } from '../../context/AppContext';
+import { AppContext } from '../context/AppContext';
 import { useNavigate } from 'react-router-dom';
 // import Screen4 from '../../CopyScreen/Screen5';
 // import { AppContext } from "../context/AppContext";

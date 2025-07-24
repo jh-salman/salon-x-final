@@ -1,8 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext, useEffect } from 'react';
+import { AppContext } from '../context/AppContext';
 // import GlassBall from './GlassBall';
 
-function CylinderSlider() {
-  const [progress, setProgress] = useState(0);
+function Cylinder() {
+  const { thermoValue, setThermoValue} = useContext(AppContext)
+  const [progress, setProgress] = useState(thermoValue);
+  useEffect(() => {
+    console.log("thermoValue", thermoValue);
+    setProgress(thermoValue);
+  }, [thermoValue]);
   const [rotateBall, setRotateBall] = useState(false);
   // For muse button draggable ball
   const [ballOffset, setBallOffset] = useState(0);
@@ -19,13 +25,13 @@ function CylinderSlider() {
   const fillHeight = (progress / 100) * totalBarHeight;
   const fillY = 234 + (totalBarHeight - fillHeight);
 
+  console.log("progress", progress);
+
   return (
     <div style={{
-      position:"absolute",
-      top:"320px",
-      right:"8px"
+      position:"relative"
     }}>
-      <div style={{ zIndex: -20 }}>
+      <div style={{  }}>
         <svg
           width="48"
           height="400"
@@ -33,7 +39,7 @@ function CylinderSlider() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path
+          {/* <path
             d="M3.01598 157.14V1817.52C3.01598 1817.52 -2.98346 1995.19 217.508 2001.83C438 2008.47 455 1817.52 455 1817.52L438.001 157.14C438.001 157.14 411.501 13.6701 237.508 3.4581C63.5142 -6.75392 3.01598 157.14 3.01598 157.14Z"
             stroke="url(#cylinder3D)"
             strokeWidth="5"
@@ -50,7 +56,7 @@ function CylinderSlider() {
             strokeWidth="5"
           />
           <g filter="url(#filter0_d_48_9)">
-          </g>
+          </g> */}
 
           {/* Custom vertical progress bar */}
           {/* Gradient defs for progress bar (unused, can be ignored for solid pink overlay) */}
@@ -96,7 +102,7 @@ function CylinderSlider() {
               })}
           </g>
 
-          <defs>
+          {/* <defs>
             {/* Glow filter for cylinder */}
             <filter id="cylinderOuterGlow" x="-100%" y="-100%" width="300%" height="300%">
               <feFlood flood-color="#B636EA" flood-opacity="1" result="flood" />
@@ -151,16 +157,16 @@ function CylinderSlider() {
               <stop stopColor="#FFAD26" />
               <stop offset="1" stopColor="#FF6826" />
             </radialGradient>
-          </defs>
+           
 
-          <g filter="url(#filter1_ii_48_9)">
+          {/* <g filter="url(#filter1_ii_48_9)">
             <path
               d="M107.5 1919C107.5 1919 76.6153 1893.06 64.5 1871C50.2959 1845.14 47 1797.5 47 1797.5L51.5 164.5C51.5 164.5 64.4544 120.549 82 98.0002C92.6849 84.2683 100.238 75.1455 114 64.5C136.106 47.4009 150.115 39.579 177.5 34.0002C197.399 29.9464 207.193 28 227.5 28C244.683 28 256.757 30.1373 273.5 34.0002C293.165 38.537 305.204 45.3125 322 56.5C341.955 69.7912 351.455 78.9402 366 98.0002C383.862 121.406 394 168 394 168V1811C394 1811 389.166 1849.8 379.5 1872.5C371.157 1892.1 351 1919 351 1919C351 1919 357.576 1921.05 359.5 1924.5C361.495 1928.08 359.5 1935 359.5 1935C359.5 1935 348.405 1943.42 341.5 1947C328.083 1953.95 322.366 1956.81 308 1961.5C284.835 1969.06 268.828 1969.64 244.5 1971C220.326 1972.36 206.976 1971.38 183 1968C149.183 1963.24 109 1947 101.5 1935C94 1923 100.5 1924.5 107.5 1919Z"
               fill="url(#paint6_linear_48_9)"
               fillOpacity="0.05"
             />
-          </g>
-          <path
+          </g> */}
+          {/* <path
             d="M107.5 1919C107.5 1919 76.6153 1893.06 64.5 1871C50.2959 1845.14 47 1797.5 47 1797.5L51.5 164.5C51.5 164.5 64.4544 120.549 82 98.0002C92.6849 84.2683 100.238 75.1455 114 64.5C136.106 47.4009 150.115 39.579 177.5 34.0002C197.399 29.9464 207.193 28 227.5 28C244.683 28 256.757 30.1373 273.5 34.0002C293.165 38.537 305.204 45.3125 322 56.5C341.955 69.7912 351.455 78.9402 366 98.0002C383.862 121.406 394 168 394 168V1811C394 1811 389.166 1849.8 379.5 1872.5C371.157 1892.1 351 1919 351 1919M107.5 1919C100.5 1924.5 94 1923 101.5 1935C109 1947 149.183 1963.24 183 1968C206.976 1971.38 220.325 1972.36 244.5 1971C268.828 1969.64 284.835 1969.06 308 1961.5C322.366 1956.81 328.083 1953.95 341.5 1947C348.405 1943.42 359.5 1935 359.5 1935C359.5 1935 361.495 1928.08 359.5 1924.5 357.576 1921.05 351 1919 351 1919"
             stroke="#FCFCFC"
             strokeOpacity="0.05"
@@ -256,7 +262,7 @@ function CylinderSlider() {
               <stop stopColor="#00BFF5" />
               <stop offset="1" stopColor="#00A2F8" />
             </radialGradient>
-          </defs>
+          </defs> */}
         </svg>
       </div>
 
@@ -274,7 +280,8 @@ function CylinderSlider() {
       </div>
 
       <div
-        className={rotateBall ? "rotating-ball" : ""}
+        // className={rotateBall ? "rotating-ball" : ""}
+        className={"rotating-ball"}
         style={{
           position: "absolute",
           top: "260px",
@@ -331,11 +338,13 @@ function CylinderSlider() {
       </style>
 
       {/* Muse button */}
-       <div style={{
+       {/* <div style={{
         position: 'absolute',
-        top: '90%',
-        left: '50%',
-        transform: 'translateX(-50%)',
+        top: '300px',
+        right: '-60px',
+        // transform: 'translateX(-50%)',
+        scale:"0.2"
+
       }}>
         <div
           ref={buttonRef}
@@ -406,10 +415,10 @@ function CylinderSlider() {
           </div>
           muse
         </div>
-      </div> 
+      </div>  */}
     </div>
   )
 }
 
 //This c
-export default CylinderSlider;
+export default Cylinder;

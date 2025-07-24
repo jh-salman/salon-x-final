@@ -1,5 +1,5 @@
 import React from 'react'
-import Screen2 from '../screen/Screen2'
+import Screen2 from '../presentation/screen/Screen2'
 
 function CurvedLine() {
     return (
