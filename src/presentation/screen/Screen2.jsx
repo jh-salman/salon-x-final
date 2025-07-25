@@ -13,14 +13,19 @@ import RebookAndCheckout from '../../component/RebookAndCheckout';
 
 
 function Screen2() {
+    
     const { 
         
-        setSelectSlider,  
+        setSelectSlider, 
+        isTimer, 
         setIsTimer,
         setOpenTimerSlider,
+        thermoValue,
+        setLayoutSlide,
+        layoutSlide,
         setThermoValue } = useContext(AppContext);
   
-
+        console.log(isTimer)
     const selectedClientData ={
          name: "Jon Klein",
           service: "Full lived-in color",
@@ -59,33 +64,45 @@ function Screen2() {
     };
     return (
         <div className="screen2-container">
+            <div className="performance-bar">
+              <div
+                className="performance-line"
+                style={{ width: `${thermoValue}%` }}
+              ></div>
+              <div
+                className="performance-dot"
+                style={{ left: `calc(${thermoValue}% - 5px)` }}
+              ></div>
+            </div>
             <div className="half-pink-container">
                 <HalfPinkCurved />
+            </div>
+            <div className="date">
+                <DynamicDate />
             </div>
             <div onClick={() => {
                 navigate("/screen1")
                 setSelectSlider(false);
+                setLayoutSlide(false);
                 setIsTimer(false);
                 setOpenTimerSlider(false);
             }} className="back-button">
                 <p > Back </p>
             </div>
-            <div onClick={(e) => handleIncrease(e)} className="profile-and-name-number">
+            <div className="profile-and-name-number">
                 <img className="profile-image" src='./avatar.png' />
                 <div className="name-container">
                     <Name />
                 </div>
 
             </div>
-            <div className="date">
-                <DynamicDate />
-            </div>
+            
             <div className="time-bar-container">
-                <TimeBar />
+                {/* <TimeBar /> */}
             </div>
             <div className="cylinder-container">
                
-                    <Cylinder />
+                    {/* <Cylinder /> */}
                     {/* <Muse /> */}
                
 
@@ -93,10 +110,11 @@ function Screen2() {
             <div className="middle-card-section">
 
                 {/* consultation  */}
-                <div onClick={(e) => handleIncrease(e)} className="consultation-card">
                     <div className="consultation-button-container">
                         <TransparentButton title={"Consultation"} />
                     </div>
+                <div className="consultation-card-wrapper">
+                    <div onClick={(e) => handleIncrease(e)} className="consultation-card">
                     <div className="consultation-info">
                         <span className="consultation-date">{selectedClientData?.consultationDate}
                         </span>
@@ -108,11 +126,13 @@ function Screen2() {
                         {selectedClientData?.notes}
                     </p>
                 </div>
-
-                <div onClick={(e) => handleIncrease(e)} className="services-card">
+                </div>
+                
+                <div className="services-card-wrapper">
                     <div className="services-button-container">
                         <TransparentButton title={"Services"} />
                     </div>
+                    <div onClick={(e) => handleIncrease(e)} className="services-card">
 
                     <div>
                         {selectedClientData?.services?.map((service, index) => (
@@ -143,9 +163,13 @@ function Screen2() {
                         ))}
                     </div>
                 </div>
+
+                </div>
+                
                 {/* Home and Care */}
             </div>
-            <div onClick={(e) => handleIncrease(e)} className="homecare-card">
+            <div className="home-care-wrapper">
+                <div onClick={(e) => handleIncrease(e)} className="homecare-card">
                 <div className="homecare-button-container">
                     <TransparentButton title={"Home Care"} />
                 </div>
@@ -162,6 +186,7 @@ function Screen2() {
                         </div>
                     ))}
                 </div>
+            </div>
             </div>
             <div className="messages-button">
                 <TransparentButton title="Messages/update" />

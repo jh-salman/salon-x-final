@@ -45,7 +45,8 @@ createRoot(document.getElementById('root')).render(
             backgroundColor: "black",
             overflow: "hidden",
             position: "relative",
-            paddingLeft:"15px"
+            padding: "0 15px"
+            
           }}>
 
             <RouterProvider router={router} />

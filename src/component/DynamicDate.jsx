@@ -8,13 +8,13 @@ const DynamicDate = () => {
 
   return (
     <div onClick={() => navigate("/screen3")}  style={{
-      // background:"red",
-      zIndex: 10000,
+      // backg'round:"red",
+      zIndex: "1000",
       
       position: 'absolute',
       cursor: "pointer",
-      // top: '20px',
-      // right: '15px',
+      top: '20px',
+      right: '10px',
       fontSize: '16px',
       fontWeight: 'bold',
       textAlign: 'right',

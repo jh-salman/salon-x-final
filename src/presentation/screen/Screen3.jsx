@@ -1,12 +1,11 @@
 import React, { useContext } from 'react'
-// import CalendarComponent from '../../components/Calendar'
 import { AppContext } from '../../context/AppContext';
 import { useNavigate } from 'react-router-dom';
 import CalendarComponent from '../../component/Calendar';
 
 function Screen3() {
     const { 
-        selectSlider,
+
         setSelectSlider,
         isTimer,
         setIsTimer,
@@ -14,8 +13,8 @@ function Screen3() {
         setOpenTimerSlider, setLayoutSlide } = useContext(AppContext);
         const navigate = useNavigate();
     return (
-        <div>
-            {/* <CalendarComponent /> */}
+        <div style={{padding:"0 15px"}}>
+           
             <CalendarComponent />
             <div style={{
                 position: "absolute",

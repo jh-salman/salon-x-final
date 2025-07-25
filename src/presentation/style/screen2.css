@@ -1,241 +1,307 @@
 .screen2-container {
-  position: relative;
-  height: 100%;
-  width: 100%;
+    position: relative;
+    height: 852px;
+    width: 393px;
 }
 
 .half-pink-container {
-  position: absolute;
-  top: -3px;
-  right: 0px;
+    position: absolute;
+    top: -10px;
+    right: 18px;
+    z-index: 1;
 }
 
 .back-button {
-  position: absolute;
-  z-index: 10;
-  top: 10px;
-  left: 10px;
-  color: #fff;
-  font-size: 20px;
+    position: absolute;
+    z-index: 10;
+    top: 20px;
+    left: 10px;
+    color: #fff;
+    font-size: 20px;
 }
 
 .profile-and-name-number {
-  width: 292px;
-  height: 141px;
-  position: relative;
-  pointer-events: auto;
-  margin: 10px auto;
+    width: 292px;
+    height: 141px;
+    position: relative;
+    pointer-events: auto;
+    margin: 10px auto;
 }
 
 .profile-image {
-  position: absolute;
-  left: 30%;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .name-container {
-  position: absolute;
-  bottom: -38%;
-  left: -10%;
+    position: absolute;
+    bottom: -45%;
+    left: -11%;
+    /* transform: translateX(-50%); */
 }
 
 .date {
-  position: absolute;
-  top: 10px;
-  right: 50px;
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    z-index: 1;
+    cursor: pointer;
 }
 
 .time-bar-container {
-  position: absolute;
-  top: 43%;
-  right: 3px;
+    position: absolute;
+    top: 43%;
+    right: 3px;
 }
 
 .cylinder-container {
-  position: absolute;
-  top: 340px;
-  right: 3px;
-  z-index: 100;
+    position: absolute;
+    top: 340px;
+    right: 3px;
+    z-index: 100;
 }
 
 .middle-card-section {
-  position: absolute;
-  top: 20%;
-  left: 0%;
-  height: 500px;
-  width: 390px;
-  padding-left: 12px;
+     margin-top: 30px;
+    position: absolute;
+    top: 20%;
+    left: 0%;
+    height: 500px;
+    width: 390px;
+    padding-left: 12px;
+}
+
+.consultation-card-wrapper {
+   background: linear-gradient(to bottom, #323232, #282727);
+    padding: 1px;
+    position: relative;
+    border-radius: 12px;
+    width: 335px;
+    height: 118px;
+
 }
 
 .consultation-card {
-  margin-top: 20px;
-  position: relative;
-  width: 360px;
-  height: 118px;
-  padding: 0 10px;
-  background: linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%);
-  border-radius: 12px;
-  border: 1px solid white;
+    /* margin-top: 20px; */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    /* background: linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%); */
+   background: linear-gradient(180deg, #1a1a1f 0%, #000000 100%);
+    /* border: 1px solid white; */
 }
 
 .consultation-button-container {
-  position: absolute;
-  top: -10px;
-  left: 35%;
+    position: absolute;
+    top: -10px;
+    left: 35%;
+    z-index: 10;
 }
 
 .consultation-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .consultation-date,
 .consultation-duration {
-  font-size: 14px;
-  color: #AAAAAA;
-  position: relative;
-  top: 10px;
+    font-size: 14px;
+    color: #AAAAAA;
+    position: relative;
+    top: 10px;
 }
 
 .consultation-notes {
-  margin-top: 10px;
-  font-family: Lato;
-  font-weight: 400;
-  font-style: Regular;
-  font-size: 12px;
-  line-height: 9.99px;
-  width: 288px;
-  padding-bottom: 5px;
-  color: white;
+    margin-top: 10px;
+    font-family: Lato;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 12px;
+    line-height: 9.99px;
+    width: 288px;
+    padding-bottom: 5px;
+    color: white;
+}
+
+.services-card-wrapper{
+    margin-top: 15px;
+    background: linear-gradient(to bottom, #323232, #282727);
+    padding: 1px;
+    position: relative;
+    border-radius: 12px;
+    width: 335px;
+    height: 153px;
 }
 
 .services-card {
-  margin-top: 20px;
-  position: relative;
-  width: 311px;
-  height: 153px;
-  padding: 0 10px;
-  background: linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%);
-  border-radius: 12px;
-  border: 1px solid white;
+    /*  */
+    position: relative;
+    width: 100%;
+    height: 100%;
+  background: linear-gradient(180deg, #1a1a1f 0%, #000000 100%);
+    border-radius: 12px;
+    /* border: 1px solid white; */
 }
 
 .services-button-container {
-  position: absolute;
-  top: -10px;
-  left: 38%;
+    position: absolute;
+    top: -10px;
+    left: 38%;
+    z-index: 10;
 }
 
 .service-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  margin-top: 20px;
-  color: #AAAAAA;
-  font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    padding-top: 20px;
+    color: #AAAAAA;
+    font-size: 12px;
 }
 
 .service-name-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .service-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: blue;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: blue;
 }
 
 .recommendation-button-container {
-  position: absolute;
-  top: 72px;
-  left: 38%;
+    position: absolute;
+    top: 72px;
+    left: 38%;
 }
 
 .recommendation-list {
-  position: absolute;
-  top: 100px;
-  left: 10px;
-  width: 275px;
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    width: 275px;
 }
 
 .recommendation-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  color: #AAAAAA;
-  font-size: 11px;
-  width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: #AAAAAA;
+    font-size: 11px;
+    width: 100%;
 }
 
 .recommendation-name-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .recommendation-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: white;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
 }
-
+.home-care-wrapper {
+      background: linear-gradient(to bottom, #323232, #282727);
+    padding: 1px;
+    position: absolute;
+    border-radius: 12px;
+    width: 335px;
+    height: 118px;
+     top: 500px;
+    
+    left: 10px;
+}   
 .homecare-card {
-  margin-top: 20px;
-  position: absolute;
-  top: 60%;
-  left: 12px;
-  width: 311px;
-  height: 118px;
-  padding: 0 10px;
-  background: linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%);
-  border-radius: 12px;
-  border: 1px solid white;
+    /* margin-top: 20px; */
+    /* position: absolute; */
+   
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    /* background: linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%); */
+    background: linear-gradient(180deg, #1a1a1f 0%, #000000 100%);
+    border-radius: 12px;
+    /* border: 1px solid white; */
 }
 
 .homecare-button-container {
-  position: absolute;
-  top: -15px;
-  left: 38%;
+    position: absolute;
+    top: -10px;
+    left: 38%;
 }
 
 .homecare-list {
-  padding-top: 15px;
+    padding-top: 15px;
 }
 
 .homecare-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  color: #AAAAAA;
-  font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    color: #AAAAAA;
+    font-size: 11px;
 }
 
 .homecare-name-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .messages-button {
-  position: absolute;
-  top: 660px;
-  left: 33%;
+    position: absolute;
+    top: 625px;
+    left: 38%;
+    /* transform: translateX(-50%); */
 }
 
 .client-review-button {
+    position: absolute;
+    bottom: 13%;
+    left: -10px;
+    /* transform: translateX(-50%); */
+}
+.social-link-button {
+    position: absolute;
+    bottom: 2%;
+    left: 20%;
+}
+.performance-bar {
   position: absolute;
-  bottom: 5%;
-  left: -3px;
+  top: 170px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 5;
 }
 
-.client-review-button.social-link-button {
-  bottom: 2%;
-  left: 20%;
+.performance-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #1E90FF; /* blue */
+  border-radius: 50%;
+  position: absolute;
+  top: -4px;
+  left: 0; /* will be dynamically updated via JS */
+  transition: left 0.3s ease;
 }

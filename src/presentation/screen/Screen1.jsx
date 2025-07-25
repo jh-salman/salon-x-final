@@ -17,6 +17,7 @@ import Name from '../../component/Name';
 import SocialIink from '../../component/SocialIink';
 import RebookAndCheckout from '../../component/RebookAndCheckout';
 import TopStats from '../../component/TopStats';
+import Screen2 from './Screen2';
 
 
 function Screen1() {
@@ -68,11 +69,12 @@ function Screen1() {
     };
 
     return (
-        <div style={{ position: "relative", }}>
+        <div style={{ position: "relative", height:"100%", width:"393px"
+         }}>
             <div onClick={handleSlide} style={{ height: "400px", width: "40px", cursor: "pointer", position: "absolute", right: "0", top: "320px", zIndex: "1000" }} className="touchableDiv">
 
             </div>
-            <div
+            {/* <div
 
                 style={{
                     position: "absolute",
@@ -87,20 +89,22 @@ function Screen1() {
                 className="date"
             >
                 <DynamicDate />
-            </div>
+            </div> */}
             
 
             <div style={{
                 position: "relative",
                 transform: layoutSlide ? "translateX(-110%)" : "translateX(0)",
                 transition: "transform 0.5s ease",
-                zIndex: "100"
+                zIndex: "100",
+                
 
             }}>
                 <div class style={{
                     position: "absolute",
                     background: "black",
                     zIndex: "10",
+                    
 
                 }}>
                     <div style={{
@@ -213,189 +217,13 @@ function Screen1() {
                 </div>
 
             </div>
-            <div style={{ position: "relative", height: "852px", width: "393px", overflow: "hidden", zIndex: "1" }}>
-
-
-
-
-
-                <div style={{ position: "relative", height: "100%", width: "100%", }}>
-                    <div style={{
-                        position: "absolute",
-                        top: "-10px",
-                        right: "18px"
-                    }}>
-                        <HalfPinkCurved />
-                    </div>
-                    {/* <div onClick={() => {
-                        navigate("/screen1")
-                        setSelectSlider(false);
-                        setIsTimer(false);
-                        setOpenTimerSlider(false);
-                    }} style={{
-                        position: "absolute",
-                        zIndex: "10",
-                        top: "10px",
-                        left: "10px", color: "#fff", fontSize: "20px"
-                    }}>
-                        <p  > Back </p>
-                    </div> */}
-                    <div style={{ width: "292px", height: "141px", position: "relative", margin: "10px auto", }} className="profile-and-name-number">
-                        <img style={{ position: "absolute", left: "30%" }} src='./avatar.png' />
-                        <div style={{ position: "absolute", bottom: "-38%", left: "-15%" }}>
-                            <Name />
-                        </div>
-
-                    </div>
-
-                    <div style={{
-                        position: "absolute",
-                        top: "41%",
-                        right: "19px",
-                    }}>
-                        <TimeBar />
-                    </div>
-                    <div style={{ position: "absolute", top: "300px", right: "19px", zIndex: "1" }} className="cylinder">
-
-                        <Cylinder />
-                        {/* <Muse /> */}
-
-
-                    </div>
-                    <div className="middle-card-section" style={{ position: "absolute", top: "20%", left: "0%", height: "500px", width: "390px", paddingLeft: "12px" }}>
-
-                        {/* consultation  */}
-                        <div onClick={handleIncrease} style={{ marginTop: '20px', position: "absolute", left: "10px", width: "360px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
-                            <div style={{
-                                position: "absolute", top: "-10px", left: "33%"
-                            }}>
-                                <TransparentButton title={"Consultation"} />
-                            </div>
-                            <div style={{
-                                display: "flex",
-                                justifyContent: "space-between",
-                                alignItems: "center",
-                            }}>
-                                <span style={{
-                                    color: " #AAAAAA",
-                                    fontSize: '14px',
-                                    display: 'inline-block',
-                                    marginRight: '10px',
-                                    paddingRight: "20px",
-                                    position: 'relative',
-                                    top: '10px'
-                                }}>{selectedClientData?.consultationDate}
-                                </span>
-                                <span style={{ fontSize: '14px', color: " #AAAAAA", position: 'relative', top: '10px' }}>
-                                    {selectedClientData?.duration}</span>
-                            </div>
-                            <p style={{
-                                marginTop: '10px',
-                                fontFamily: " Lato",
-                                fontWeight: 400,
-                                fontStyle: "Regular",
-                                fontSize: "12px",
-                                lineHeight: "9.99px",
-                                width: "288px",
-                                paddingBottom: "5px",
-                                color: "white"
-                            }}>
-                                <br />
-                                {selectedClientData?.notes}
-                            </p>
-                        </div>
-
-                        <div onClick={handleIncrease} style={{ marginTop: '20px', position: "absolute", top: "29%", width: "311px", height: "153px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
-                            <div style={{
-                                position: "absolute", top: "-10px", left: "38%"
-                            }}>
-                                <TransparentButton title={"Services"} />
-                            </div>
-
-                            <div>
-                                {selectedClientData?.services?.map((service, index) => (
-                                    <div key={index} style={{
-                                        display: "flex", justifyContent: "space-between", alignItems: "center",
-                                        padding: "0 10px", marginTop: "20px", color: " #AAAAAA", fontSize: "12px"
-                                    }}>
-                                        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                                            <div style={{
-                                                width: "10px", height: "10px", borderRadius: "50%",
-                                                backgroundColor: "blue"
-                                            }}></div>
-                                            <span>{service.name}</span>
-                                        </div>
-                                        <span>${service.price}</span>
-                                    </div>
-                                ))}
-                            </div>
-
-                            <div style={{
-                                position: "absolute", top: "72px", left: "38%"
-                            }}>
-                                <TransparentButton title={"Recomandation"} />
-                            </div>
-
-
-                            <div style={{ position: "absolute", top: "100px", left: "10px", width: "275px" }}>
-                                {selectedClientData?.recommendations?.map((rec, index) => (
-                                    <div key={index} style={{
-                                        display: "flex", justifyContent: "space-between", alignItems: "center",
-                                        padding: "10px", color: " #AAAAAA", fontSize: "11px", width: "100%"
-                                    }}>
-                                        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                                            <div style={{
-                                                width: "10px", height: "10px", borderRadius: "50%",
-                                                backgroundColor: "white"
-                                            }}></div>
-                                            <span>{rec.name}</span>
-                                        </div>
-                                        <span>${rec.price}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        {/* Home and Care */}
-                    </div>
-                    <div onClick={handleIncrease} style={{ marginTop: '20px', position: "absolute", top: "58%", left: "12px", width: "311px", height: "118px", padding: "0 10px", background: "linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%)", borderRadius: "12px", border: "1px solid white" }}>
-                        <div style={{
-                            position: "absolute", top: "-15px", left: "38%"
-                        }}>
-                            <TransparentButton title={"Home Care"} />
-                        </div>
-                        <div style={{ paddingTop: "25px" }}>
-                            {selectedClientData?.homeCare?.map((item, index) => (
-                                <div key={index} style={{
-                                    display: "flex", justifyContent: "space-between", alignItems: "center",
-                                    padding: "0 10px", color: " #AAAAAA", fontSize: "11px"
-                                }}>
-                                    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                                        <div >
-                                            <img src={item.img} />
-                                        </div>
-                                        <span>{item.name}</span>
-                                    </div>
-                                    <span>${item.price}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="messages-button" style={{
-                        position: "absolute",
-                        top: "660px", left: "28%"
-                    }}>
-                        <TransparentButton title="Messages/update" />
-                    </div>
-
-                    <div className="clientReviewButton" style={{ position: "absolute", bottom: "50px", left: "-12px" }}>
-                        {/* <ClientReviewButtons /> */}
-                        <RebookAndCheckout onClick={handleIncrease}/>
-                    </div>
-                    <div className="clientReviewButton" style={{ position: "absolute", bottom: "20px", left: "60px" }}>
-                        <SocialIink />
-                    </div>
-
+            <div style={{ position: "relative", height: "852px", width: "100%", overflow: "hidden", zIndex: "1" }}>
+                <div style={{
+                    position: "absolute", width:"393px", height: "852px",}}>
+                        <Screen2 />
                 </div>
+
+
             </div>
         </div>
     )

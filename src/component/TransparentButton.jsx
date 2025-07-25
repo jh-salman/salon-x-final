@@ -4,12 +4,12 @@ function TransparentButton({ title }) {
     return (
         <button
             style={{
-                fontSize: "12px",
-                height: "31px",
-                width: "134px",
-                border: "2px solid white",
+                fontSize: "9px",
+                height: "24px",
+                width: "100px",
+                border: "none",
                 borderRadius: "8px",
-                background: "black",
+                background:"linear-gradient(180deg, #2D2D3A 0%, #000000 100%)",
                 color: "white",
                 padding: "0 12px",
                 display: "flex",
@@ -17,6 +17,7 @@ function TransparentButton({ title }) {
                 justifyContent: "center",
                 margin: "0 auto",
                 position: "absolute",
+                outline: "none",
             }}
         >
             {title}
