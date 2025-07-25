@@ -1,42 +1,36 @@
 import React from "react";
 
 const CustomSlider = ({ value, onChange }) => {
+  // Dynamic styles that depend on the current value
+  const filledTrackStyle = {
+    position: "absolute",
+    top: "50%",
+    left: 0,
+    height: "6px",
+    width: `${value}%`,
+    background: "linear-gradient(to right, #00f0ff, #9d00ff)",
+    transform: "translateY(-50%)",
+    borderRadius: "3px",
+    zIndex: 1
+  };
+  const thumbContainerStyle = {
+    position: "absolute",
+    top: "60%",
+    left: `calc(${value}% - 30px)`,
+    transform: "translateY(-40%)",
+    width: "60px",
+    height: "60px",
+    pointerEvents: "none",
+    zIndex: 2
+  };
   return (
-    <div style={{
-      width: "100%",
-      height: "80px",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: "transparent",
-      position: "relative"
-    }}>
+    <div style={containerStyle}>
       <div style={{ position: "relative", width: "90%", height: "6px" }}>
         {/* Base Track */}
-        <div style={{
-          position: "absolute",
-          top: "50%",
-          left: 0,
-          right: 0,
-          height: "6px",
-          background: "#444",
-          transform: "translateY(-50%)",
-          borderRadius: "3px",
-          zIndex: 0
-        }} />
+        <div style={baseTrackStyle} />
 
         {/* Filled Track */}
-        <div style={{
-          position: "absolute",
-          top: "50%",
-          left: 0,
-          height: "6px",
-          width: `${value}%`,
-          background: "linear-gradient(to right, #00f0ff, #9d00ff)",
-          transform: "translateY(-50%)",
-          borderRadius: "3px",
-          zIndex: 1
-        }} />
+        <div style={filledTrackStyle} />
 
         {/* Slider Input */}
         <input
@@ -45,29 +39,12 @@ const CustomSlider = ({ value, onChange }) => {
           max="100"
           value={value}
           onChange={onChange}
-          style={{
-            WebkitAppearance: "none",
-            width: "100%",
-            height: "6px",
-            background: "transparent",
-            cursor: "pointer",
-            position: "relative",
-            zIndex: 3
-          }}
+          style={inputStyle}
         />
 
         {/* Custom SVG Thumb */}
         <div
-          style={{
-            position: "absolute",
-            top: "60%",
-            left: `calc(${value}% - 30px)`,
-            transform: "translateY(-50%)",
-            width: "60px",
-            height: "60px",
-            pointerEvents: "none",
-            zIndex: 2,
-          }}
+          style={thumbContainerStyle}
           dangerouslySetInnerHTML={{__html: `
             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
               <foreignObject x="0.631943" y="0.595692" width="58.7344" height="58.6817"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(5.09px);clip-path:url(#bgblur_0_913_22580_clip_path);height:100%;width:100%"></div></foreignObject><g filter="url(#filter0_d_913_22580)" data-figma-bg-blur-radius="10.1836">
@@ -157,6 +134,37 @@ const CustomSlider = ({ value, onChange }) => {
       </div>
     </div>
   );
+};
+
+const containerStyle = {
+  width: "100%",
+  height: "80px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  backgroundColor: "transparent",
+  position: "relative"
+};
+const baseTrackStyle = {
+  position: "absolute",
+  top: "50%",
+  left: 0,
+  right: 0,
+  height: "6px",
+  background: "#444",
+  transform: "translateY(-50%)",
+  borderRadius: "3px",
+  zIndex: 0
+};
+const inputStyle = {
+  WebkitAppearance: "none",
+  width: "100%",
+  height: "60px",
+  marginTop: "-27px",
+  background: "transparent",
+  cursor: "pointer",
+  position: "relative",
+  zIndex: 3
 };
 
 export default CustomSlider;

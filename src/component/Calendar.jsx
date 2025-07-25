@@ -48,67 +48,30 @@ const CalendarComponent = () => {
   );
 
   return (
-    <div style={{
-      height: "100vh",
-      padding: "20px",
-      backgroundColor: "#0a0a0a",
-      color: "#fff",
-      WebkitOverflowScrolling: "touch"
-    }}>
-      <div className="custom-calendar" style={{ width: "100%", margin: "0 auto" }}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            marginBottom: "16px",
-          }}
-        >
+    <div style={containerStyle}>
+      <div className="custom-calendar" style={calendarWrapperStyle}>
+        <div style={navBarStyle}>
           <button
             onClick={() => setCurrentDate(prev => new Date(prev.setDate(prev.getDate() - 1)))}
-            style={{
-              background: "none",
-              border: "none",
-              color: "#00b7ff",
-              fontSize: "18px",
-              fontWeight: "bold",
-              cursor: "pointer",
-              marginRight: "8px",
-            }}
+            style={navButtonLeftStyle}
           >
             {"<<"}
           </button>
 
-          <div
-            style={{
-              display: "flex",
-              borderRadius: "30px",
-              background: "linear-gradient(90deg, #4a4a4a, #3a3a3a)",
-              border: "1px solid #5e5e5e",
-              padding: "4px",
-              boxShadow: "inset 0 0 6px rgba(0,0,0,0.3)",
-            }}
-          >
+          <div style={viewToggleContainerStyle}>
             {["day", "week", "month"].map((v) => (
               <button
                 key={v}
                 onClick={() => setCurrentView(v)}
                 style={{
-                  padding: "8px 20px",
-                  borderRadius: "24px",
-                  border: "none",
-                  margin: "0 2px",
+                  ...toggleButtonBase,
                   background: currentView === v
                     ? "radial-gradient(circle at center, #222 0%, #111 100%)"
                     : "transparent",
                   boxShadow: currentView === v
                     ? "0px 0px 8px rgba(0, 183, 255, 0.6)"
                     : "none",
-                  color: currentView === v ? "#00b7ff" : "#ccc",
-                  fontWeight: "600",
-                  fontSize: "14px",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
+                  color: currentView === v ? "#00b7ff" : "#ccc"
                 }}
               >
                 {v.charAt(0).toUpperCase() + v.slice(1)}
@@ -118,24 +81,16 @@ const CalendarComponent = () => {
 
           <button
             onClick={() => setCurrentDate(prev => new Date(prev.setDate(prev.getDate() + 1)))}
-            style={{
-              background: "none",
-              border: "none",
-              color: "#00b7ff",
-              fontSize: "18px",
-              fontWeight: "bold",
-              cursor: "pointer",
-              marginLeft: "8px",
-            }}
+            style={navButtonRightStyle}
           >
             {">>"}
           </button>
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", color: "#ccc", fontSize: "14px", maxWidth: "393px", margin: "0 auto 10px auto" }}>
+        <div style={weekDaysContainerStyle}>
           {weekDays.map((day, idx) => {
             const isSelected = moment(currentDate).isSame(day, "day");
             return (
-              <div key={idx} style={{ textAlign: "center", width: "100%", fontWeight: "500", cursor: "pointer" }} onClick={() => setCurrentDate(day.toDate())}>
+              <div key={idx} style={dayCellStyle} onClick={() => setCurrentDate(day.toDate())}>
                 <div>{day.format("dd")[0]}</div>
                 <div style={{
                   marginTop: "4px",
@@ -153,47 +108,21 @@ const CalendarComponent = () => {
             );
           })}
         </div>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "10px", marginBottom: "10px" }}>
-          <span style={{
-            fontSize: "18px",
-            fontWeight: "600",
-            color: "#fff",
-            marginRight: "10px"
-          }}>
+        <div style={headerStyle}>
+          <span style={headerDateStyle}>
             {moment(currentDate).format("dddd")}
           </span>
 
-          <div style={{ display: "flex", gap: "8px" }}>
+          <div style={stylistFilterContainerStyle}>
             {[...new Set(events.map(e => e.resource?.stylist).filter(Boolean))].map(stylist => (
-              <span key={stylist} style={{
-                display: "flex",
-                alignItems: "center",
-                padding: "6px 12px",
-                backgroundColor: "#1a1a1a",
-                border: "1px solid #f28c28",
-                color: "#fff",
-                borderRadius: "20px",
-                fontSize: "12px",
-                fontWeight: "500"
-              }}>
-                <span style={{
-                  display: "inline-block",
-                  width: "8px",
-                  height: "8px",
-                  borderRadius: "50%",
-                  backgroundColor: "#f28c28",
-                  marginRight: "6px"
-                }}></span>
+              <span key={stylist} style={stylistBadgeStyle}>
+                <span style={stylistDotStyle}></span>
                 {stylist}
               </span>
             ))}
           </div>
         </div>
-        <div style={{
-          height: "calc(100vh - 320px)",
-          overflowX: "auto",
-          overflowY: "auto",
-        }}>
+        <div style={calendarContainerStyle}>
           <Calendar
             localizer={localizer}
             events={events}
@@ -202,10 +131,7 @@ const CalendarComponent = () => {
             view={currentView}
             onView={(view) => setCurrentView(view)}
             views={["day", "week", "month"]}
-            style={{
-              height: "100%",
-              width: "100%"
-            }}
+            style={calendarStyle}
             min={new Date(2025, 6, 9, 8, 0)}  // 8:00 AM on July 9
             max={new Date(2025, 6, 9, 19, 0)} // 7:00 PM on July 9
             defaultDate={currentDate}
@@ -268,32 +194,14 @@ const CalendarComponent = () => {
       </div>
       {selectedEvent && (
         <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            backgroundColor: "rgba(0,0,0,0.6)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 1000
-          }}
+          style={overlayStyle}
           onClick={() => setSelectedEvent(null)}
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            style={{
-              backgroundColor: "#111",
-              borderRadius: "16px",
-              padding: "20px",
-              width: "320px",
-              color: "#fff",
-              boxShadow: "0 8px 20px rgba(0,0,0,0.5)"
-            }}
+            style={modalStyle}
           >
-            <h3 style={{ marginBottom: "20px", textAlign: "center" }}>
+            <h3 style={modalTitleStyle}>
               {selectedEvent.title.split(" - ")[0]}
             </h3>
 
@@ -301,17 +209,7 @@ const CalendarComponent = () => {
               <button
                 key={label}
                 onClick={() => handleAction(label)}
-                style={{
-                  width: "100%",
-                  marginBottom: "10px",
-                  padding: "12px",
-                  fontSize: "14px",
-                  fontWeight: "bold",
-                  borderRadius: "24px",
-                  background: "#101010",
-                  border: "1px solid #555",
-                  color: "#fff",
-                }}
+                style={modalActionButtonStyle}
               >
                 {label}
               </button>
@@ -319,14 +217,7 @@ const CalendarComponent = () => {
 
             <button
               onClick={() => setSelectedEvent(null)}
-              style={{
-                marginTop: "10px",
-                width: "100%",
-                background: "transparent",
-                border: "none",
-                color: "#aaa",
-                textAlign: "center"
-              }}
+              style={modalCloseButtonStyle}
             >
               Close
             </button>
@@ -427,6 +318,160 @@ const CalendarComponent = () => {
       </style>
     </div>
   );
+};
+
+const containerStyle = {
+  height: "100vh",
+  padding: "20px",
+  backgroundColor: "#0a0a0a",
+  color: "#fff",
+  WebkitOverflowScrolling: "touch"
+};
+const calendarWrapperStyle = {
+  width: "100%",
+  margin: "0 auto"
+};
+const navBarStyle = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  marginBottom: "16px"
+};
+const navButtonStyle = {
+  background: "none",
+  border: "none",
+  color: "#00b7ff",
+  fontSize: "18px",
+  fontWeight: "bold",
+  cursor: "pointer"
+};
+const navButtonLeftStyle = {
+  ...navButtonStyle,
+  marginRight: "8px"
+};
+const navButtonRightStyle = {
+  ...navButtonStyle,
+  marginLeft: "8px"
+};
+const viewToggleContainerStyle = {
+  display: "flex",
+  borderRadius: "30px",
+  background: "linear-gradient(90deg, #4a4a4a, #3a3a3a)",
+  border: "1px solid #5e5e5e",
+  padding: "4px",
+  boxShadow: "inset 0 0 6px rgba(0,0,0,0.3)"
+};
+const toggleButtonBase = {
+  padding: "8px 20px",
+  borderRadius: "24px",
+  border: "none",
+  margin: "0 2px",
+  fontWeight: "600",
+  fontSize: "14px",
+  cursor: "pointer",
+  transition: "all 0.3s ease"
+};
+const weekDaysContainerStyle = {
+  display: "flex",
+  justifyContent: "space-between",
+  color: "#ccc",
+  fontSize: "14px",
+  maxWidth: "393px",
+  margin: "0 auto 10px auto"
+};
+const dayCellStyle = {
+  textAlign: "center",
+  width: "100%",
+  fontWeight: "500",
+  cursor: "pointer"
+};
+const headerStyle = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  marginTop: "10px",
+  marginBottom: "10px"
+};
+const headerDateStyle = {
+  fontSize: "18px",
+  fontWeight: "600",
+  color: "#fff",
+  marginRight: "10px"
+};
+const stylistFilterContainerStyle = {
+  display: "flex",
+  gap: "8px"
+};
+const stylistBadgeStyle = {
+  display: "flex",
+  alignItems: "center",
+  padding: "6px 12px",
+  backgroundColor: "#1a1a1a",
+  border: "1px solid #f28c28",
+  color: "#fff",
+  borderRadius: "20px",
+  fontSize: "12px",
+  fontWeight: "500"
+};
+const stylistDotStyle = {
+  display: "inline-block",
+  width: "8px",
+  height: "8px",
+  borderRadius: "50%",
+  backgroundColor: "#f28c28",
+  marginRight: "6px"
+};
+const calendarContainerStyle = {
+  height: "calc(100vh - 320px)",
+  overflowX: "auto",
+  overflowY: "auto"
+};
+const calendarStyle = {
+  height: "100%",
+  width: "100%"
+};
+const overlayStyle = {
+  position: "fixed",
+  top: 0,
+  left: 0,
+  width: "100vw",
+  height: "100vh",
+  backgroundColor: "rgba(0,0,0,0.6)",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  zIndex: 1000
+};
+const modalStyle = {
+  backgroundColor: "#111",
+  borderRadius: "16px",
+  padding: "20px",
+  width: "320px",
+  color: "#fff",
+  boxShadow: "0 8px 20px rgba(0,0,0,0.5)"
+};
+const modalTitleStyle = {
+  marginBottom: "20px",
+  textAlign: "center"
+};
+const modalActionButtonStyle = {
+  width: "100%",
+  marginBottom: "10px",
+  padding: "12px",
+  fontSize: "14px",
+  fontWeight: "bold",
+  borderRadius: "24px",
+  background: "#101010",
+  border: "1px solid #555",
+  color: "#fff"
+};
+const modalCloseButtonStyle = {
+  marginTop: "10px",
+  width: "100%",
+  background: "transparent",
+  border: "none",
+  color: "#aaa",
+  textAlign: "center"
 };
 
 export default CalendarComponent;

@@ -4,8 +4,6 @@ function HalfPinkCurved() {
     return (
         <div>
            <img src='./halfcurved.png' />
-
-
         </div>
     )
 }

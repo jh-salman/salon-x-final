@@ -17,18 +17,9 @@ const WaitingList = () => {
 
     }
   ]
-  const clip1 = 'polygon(0 0, 91% 0, 93% 100%, 0% 100%)';
-  const clip2 = 'polygon(0 0, 91% 0, 93% 100%, 0% 100%)';
-  const clip3 = 'polygon(0 0, 91% 0, 93% 100%, 0% 100%)';
+
   return (
-    <div style={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "left",
-      justifyContent: "center",
-      // backgroundColor:"red",
-      width: "393px"
-    }}>
+    <div style={containerStyle}>
       <style>
       {`
        
@@ -51,100 +42,91 @@ const WaitingList = () => {
         }
       `}
       </style>
-      <div className='waiting-list' style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "20px 10px",
-        // background: "black",
-        borderRadius: "0",
-        width: "87%",
-        background: "linear-gradient(180deg, #2D2D3A 0%, #000000 100%)",
-        clipPath:'polygon(0 0, 91% 0, 93% 100%, 0% 100%)'
-
-
-      }}>
-        <div style={{display:"flex", }}>
-          <div style={{
-          width: "10px",
-          height: "10px",
-          background: "yellow",
-          borderRadius: "50%",
-
-
-
-        }}>
-        </div>
-        <h1 style={{
-          color: "yellow",
-          fontSize: "0.6rem",
-          fontWeight: "bold",
-          paddingLeft:"10px"
-
-        }}>Waiting List</h1>
+      <div className='waiting-list' style={waitingListStyle}>
+        <div style={innerFlexStyle}>
+          <div style={indicatorDotStyle}>
+          </div>
+          <h1 style={waitingListHeaderTextStyle}>Waiting List</h1>
         </div>
         <div></div>
         
       </div>
-      <div style={{
-        display: "flex",
-        flexDirection: "column",
-        // alignItems: "left",
-        // justifyContent: "center",
-        width: "393px",
-        borderRadius: "10px",
-        padding: " 0",
-        // backgroundColor:"blue"
-
-
-      }}>
+      <div style={clientsContainerStyle}>
         {waitingClients.map((client, index) => (
-          <div key={index} className={`waiting-card waiting-card-${index}`} style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "1px",
-            // border:" 1px solid",
-              width: index === 0 ? "355px" : index === 1 ? "366.9px" : "383.2px",
-            // clipPath: index === 0 ? clip1 : index === 1 ? clip2 : clip3,
-            // borderImageSource: "linear-gradient(106.33deg, #FFFFFF 4.13%, rgba(38, 38, 38, 0.42) 12.08%)"
-            backgroundColor: "linear-gradient(180deg #fff 100%, #000000 100%)",
-            margin: "5px 0px"
-
-
-          }} >
-            <div className="waiting-inner" style={{
-                width: index === 0 ? "373px" : index === 1 ? "383px" : "394px",
-              background: "linear-gradient(180deg, #2D2D3A 0%, #000000 100%)",
-              color: "white",
-              height: "40px",
-              minHeight: "40px",
-              marginTop: "5px",
-              // padding: "10px 5px",
-              // clipPath: index === 0 ? clip1 : index === 1 ? clip2 : clip3,
-              padding: "5px 10px"
-            }}>
-              <h1 style={{
-                fontSize: "0.7rem",
-                textAlign: "left",
-              }}>{client.name}</h1>
-              <p style={{
-                fontSize: "0.5rem",
-                textAlign: "left",
-              }}>{client.service}</p>
+          <div key={index} className={`waiting-card waiting-card-${index}`} style={{ ...cardBaseStyle, width: index === 0 ? "355px" : index === 1 ? "366.9px" : "383.2px" }} >
+            <div className="waiting-inner" style={{ ...waitingInnerBaseStyle, width: index === 0 ? "373px" : index === 1 ? "383px" : "394px" }}>
+              <h1 style={clientNameStyle}>{client.name}</h1>
+              <p style={clientServiceStyle}>{client.service}</p>
             </div>
-
-
           </div>
-
         ))}
       </div>
-   
-
-
-
     </div >
   )
 }
+
+const containerStyle = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "left",
+  justifyContent: "center",
+  width: "393px"
+};
+const waitingListStyle = {
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  padding: "20px 10px",
+  borderRadius: "0",
+  width: "87%",
+  background: "linear-gradient(180deg, #2D2D3A 0%, #000000 100%)",
+  clipPath: "polygon(0 0, 91% 0, 93% 100%, 0% 100%)"
+};
+const innerFlexStyle = {
+  display: "flex"
+};
+const indicatorDotStyle = {
+  width: "10px",
+  height: "10px",
+  background: "yellow",
+  borderRadius: "50%"
+};
+const waitingListHeaderTextStyle = {
+  color: "yellow",
+  fontSize: "0.6rem",
+  fontWeight: "bold",
+  paddingLeft: "10px"
+};
+const clientsContainerStyle = {
+  display: "flex",
+  flexDirection: "column",
+  width: "393px",
+  borderRadius: "10px",
+  padding: "0"
+};
+const cardBaseStyle = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: "1px",
+  background: "linear-gradient(180deg #fff 100%, #000000 100%)",
+  margin: "5px 0px"
+};
+const waitingInnerBaseStyle = {
+  background: "linear-gradient(180deg, #2D2D3A 0%, #000000 100%)",
+  color: "white",
+  height: "40px",
+  minHeight: "40px",
+  marginTop: "5px",
+  padding: "5px 10px"
+};
+const clientNameStyle = {
+  fontSize: "0.7rem",
+  textAlign: "left"
+};
+const clientServiceStyle = {
+  fontSize: "0.5rem",
+  textAlign: "left"
+};
 
 export default WaitingList

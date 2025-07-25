@@ -68,30 +68,11 @@ const SvgCircle = () => {
                 position: 'relative'
             }}>
                 <div style={{
-                    // animation: 'spin 4s ease-in-out infinite',
-                    // transformOrigin: 'center center',
                     position: 'absolute',
                     top: -25,
                     left: -20,
-                    // width: '80px',
-                    // height: '80px',
                     filter: 'drop-shadow(0 0 8px rgba(255, 73, 127, 0.8))'
                 }}>
-                    {/* <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <circle
-                            cx="50"
-                            cy="50"
-                            r="45"
-                            fill="url(#gradient)"
-                        />
-                        <defs>
-                            <linearGradient id="gradient" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stopColor="#FB9578" />
-                                <stop offset="60%" stopColor="#E74880" />
-                                <stop offset="100%" stopColor="#9C0047" />
-                            </linearGradient>
-                        </defs>
-                    </svg> */}
 
                     <img style={{
                         animation: 'spin 8s infinite',
@@ -121,16 +102,8 @@ const TopStats = () => {
     // Only initialize sliderValue once, do not reset it inadvertently
     const [sliderValue, setSliderValue] = useState(50)
     return (
-        <div style={{ position: "relative", margin: '0 auto', textAlign: 'center' }}>
-            <div style={{ marginBottom: '', zIndex: "10", position: "absolute", top: "15%", left: "30%" }}>
-                {/* <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={sliderValue}
-                   
-                    style={{ width: '100%', accentColor: '#FF1493' }}
-                /> */}
+        <div style={wrapperStyle}>
+            <div style={sliderWrapperStyle}>
                 <CustomSlider
                     value={sliderValue}
                     onChange={(e) => {
@@ -141,19 +114,18 @@ const TopStats = () => {
                         }
                     }}
                 />
-
             </div>
-            <div style={{ width: "370px", height: "210px", position: 'relative' }}>
-                <div style={{ position: 'absolute', top: '40%', left: "0%" }}>
+            <div style={statsContainerStyle}>
+                <div style={stats1Style}>
                     <StatsCircle value={sliderValue} label="Revenue" color={pinkColor} />
                 </div>
-                <div style={{ position: 'absolute', bottom: '-15%', left: "0" }}>
+                <div style={stats2Style}>
                     <StatsCircle value={sliderValue} label="Retail" color={pinkColor} />
                 </div>
-                <div className="right-circle retention" style={{ position: 'absolute', top: '40%', right: "10%" }}>
+                <div className="right-circle retention" style={retentionStyle}>
                     <StatsCircle value={sliderValue} label="Retention" color={pinkColor} />
                 </div>
-                <div className="right-circle service" style={{ position: 'absolute', bottom: '-15%', right: "10%" }}>
+                <div className="right-circle service" style={serviceStyle}>
                     <StatsCircle value={sliderValue} label="Service" color={pinkColor} />
                 </div>
 
@@ -172,19 +144,8 @@ const TopStats = () => {
   }
 `}
                 </style>
-                <div className="move-left-responsive"  style={{
-                    position: 'absolute',
-                    top: '78%',
-                    left: '45%',
-                    transform: 'translate(-50%, -50%)',
-                    width: 90,
-                    height: 90,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexDirection: 'column'
-                }}>
-                    <div style={{ height: 160, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                <div className="move-left-responsive" style={circleWrapperStyle}>
+                    <div style={innerCircleStyle}>
                         {(sliderValue / 20).toFixed(2) >= 4.5 ? (
                             <Crown size={21} color="#FFD700" weight="fill" />
                         ) : (
@@ -207,8 +168,8 @@ const TopStats = () => {
                             <SvgCircle />
                         </div>
                     </div>
-                    <div style={{ color: '#50E3FF', fontSize: 8.25, fontWeight: 'bold', marginTop: 8 }}>Tiffany Styles</div>
-                    <div style={{ color: '#50E3FF', fontSize: 13.5, fontWeight: 'bold', marginTop: 4 }}>
+                    <div style={nameTextStyle}>Tiffany Styles</div>
+                    <div style={valueTextStyle}>
                         {(sliderValue / 20).toFixed(2)}
                     </div>
                 </div>
@@ -216,6 +177,75 @@ const TopStats = () => {
         </div>
     )
 }
+
+
+const wrapperStyle = {
+  position: "relative",
+  margin: "0 auto",
+  textAlign: "center"
+};
+const sliderWrapperStyle = {
+  position: "absolute",
+  top: "15%",
+  left: "30%",
+  zIndex: 10
+};
+const statsContainerStyle = {
+  position: "relative",
+  width: "370px",
+  height: "210px"
+};
+const stats1Style = {
+  position: "absolute",
+  top: "40%",
+  left: "0%"
+};
+const stats2Style = {
+  position: "absolute",
+  bottom: "-15%",
+  left: "0"
+};
+const retentionStyle = {
+  position: "absolute",
+  top: "40%",
+  right: "10%"
+};
+const serviceStyle = {
+  position: "absolute",
+  bottom: "-15%",
+  right: "10%"
+};
+const circleWrapperStyle = {
+  position: "absolute",
+  top: "78%",
+  left: "45%",
+  transform: "translate(-50%, -50%)",
+  width: "90px",
+  height: "90px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexDirection: "column"
+};
+const innerCircleStyle = {
+  height: "160px",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center"
+};
+const nameTextStyle = {
+  color: "#50E3FF",
+  fontSize: "8.25px",
+  fontWeight: "bold",
+  marginTop: "8px"
+};
+const valueTextStyle = {
+  color: "#50E3FF",
+  fontSize: "13.5px",
+  fontWeight: "bold",
+  marginTop: "4px"
+};
 
 export default TopStats
 

@@ -1,10 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { AppContext } from '../context/AppContext';
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-// import Screen4 from '../../CopyScreen/Screen5';
-// import { AppContext } from "../context/AppContext";
 
-// import Screen4 from './screen4';
 
 function SetTimmer() {
     const [minutes, setMinutes] = useState(30);
@@ -13,7 +9,6 @@ function SetTimmer() {
     const [selectedHours, setSelectedHours] = useState(0);
     const [selectedMinutes, setSelectedMinutes] = useState(0);
     const [totalSeconds, setTotalSeconds] = useState(0);
-    const { set } = useContext(AppContext);
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -99,128 +94,59 @@ function SetTimmer() {
             </style>
             <div
                 className="responsive-width-box"
-                style={{
-                    width: "340px",
-                    height: "210px",
-                    margin: "10px 0",
-                    background: "rgba(255, 255, 255, 0.04)",
-                    borderRadius: "20px",
-                    padding: "10px 20px",
-                    color: "white",
-                    fontFamily: "sans-serif",
-                    WebkitBackdropFilter: "blur(16px)",
-                    position: "relative",
-                    clipPath: "path('M0,0 H320 C280,100 280,200 320,300 H0 Z')",
-                }}
+                style={containerStyle}
             >
                 <button
-                    style={{
-                        padding: "3px 10px",
-                        backgroundColor: "#d1d5db",
-                        color: "#111",
-                        borderRadius: "8px",
-                        border: "none",
-                        fontSize: "10px",
-                        right: "90px",
-                        top: "50px",
-                        position: "absolute"
-
-                    }}
+                    style={addButtonStyle}
                     onClick={handleAddFiveMinutes}
                 >
                     Add
                 </button>
-                <div style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    gap: "15px",
-                    position: "absolute",
-                    bottom: "10px",
-                    left: 10,
-
-                    margin: "auto"
-                }}>
+                <div style={controlsWrapperStyle}>
                     <button
                       onClick={() => {
                         handleStart();
                         setTimeout(() => navigate("/screen3"), 100);
                       }}
-                      style={{
-                        padding: "6px 15px",
-                        backgroundColor: "#d1d5db",
-                        color: "#000",
-                        borderRadius: "10px",
-                        border: "none",
-                        fontWeight: "bold"
-                      }}
+                      style={controlButtonStyle}
                     >
                       Start
                     </button>
 
-                    <button style={{
-                        padding: "6px 15px",
-                        backgroundColor: "#d1d5db",
-                        color: "#000",
-                        borderRadius: "10px",
-                        border: "none",
-                        fontWeight: "bold"
-                    }} onClick={handlePause}>Pause</button>
+                    <button style={controlButtonStyle} onClick={handlePause}>Pause</button>
 
-                    <button style={{
-                        padding: "6px 15px",
-                        backgroundColor: "#d1d5db",
-                        color: "#000",
-                        borderRadius: "10px",
-                        border: "none",
-                        fontWeight: "bold"
-                    }} onClick={handleReset}>Reset</button>
+                    <button style={controlButtonStyle} onClick={handleReset}>Reset</button>
                 </div>
 
-                <div style={{
-                    position: "absolute",
-                    bottom: "10px",
-                    right: "70px",
-                    backgroundColor: "#fff",
-                    borderRadius: "50%",
-                    padding: "6px",
-                    width: "26px",
-                    height: "26px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center"
-                }}>
+                <div style={badgeStyle}>
                     <span style={{ fontSize: "14px", color: "#000" }}>👥</span>
                 </div>
 
-                <div className='info' style={{ position: "absolute", left: 10, top: 10, }}>
-                    <div style={{ textAlign: "center", fontSize: "16px", fontWeight: "500", marginBottom: "8px" }}>Jon Klein</div>
+                <div className='info' style={infoContainerStyle}>
+                    <div style={infoNameStyle}>Jon Klein</div>
                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "10px" }}>
-                        <div style={{
-                            position: "relative",
-                            width: "90px",
-                            height: "90px",
-                            borderRadius: "50%",
-                            background: `conic-gradient(from 270deg, #FA1BFE ${getProgress() / 2}%, #7600F9 ${getProgress()}%,rgba(25, 54, 69, 0.24) ${getProgress()}%)`,
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                        }}>
+                        <div style={timerWrapperStyle}>
                             <div style={{
-                                position: "absolute",
-                                width: "65px",
-                                height: "65px",
-                                backgroundColor: "#110E16",
-                                borderRadius: "50%",
-                                display: "flex",
-                                flexDirection: "column",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                color: "white",
-                                fontWeight: "bold",
-                                fontSize: "18px"
+                                ...timerCircleStyle,
+                                background: `conic-gradient(from 270deg, #FA1BFE ${getProgress() / 2}%, #7600F9 ${getProgress()}%,rgba(25, 54, 69, 0.24) ${getProgress()}%)`
                             }}>
-                                <div>{`${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`}</div>
-                                <div style={{ fontSize: "10px", color: "#d1d5db", fontWeight: "normal" }}>45 Mins</div>
+                                <div style={{
+                                    position: "absolute",
+                                    width: "65px",
+                                    height: "65px",
+                                    backgroundColor: "#110E16",
+                                    borderRadius: "50%",
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    color: "white",
+                                    fontWeight: "bold",
+                                    fontSize: "18px"
+                                }}>
+                                    <div style={timeTextStyle}>{`${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`}</div>
+                                    <div style={durationTextStyle}>45 Mins</div>
+                                </div>
                             </div>
                         </div>
 
@@ -229,15 +155,15 @@ function SetTimmer() {
                                 <div>{selectedHours} Hours</div>
                                 <div>{selectedMinutes} Min</div>
                             </div>
-                            <div style={{ display: "flex", gap: "30px", marginTop: "2px" }}>
-                                <div style={{ fontSize: "9px", cursor: "pointer" }}>
+                            <div style={selectorsWrapperStyle}>
+                                <div style={selectorOptionStyle}>
                                     {[1, 2, 3].map(val => (
-                                        <div key={val} onClick={() => setSelectedHours(val)} style={{ opacity: selectedHours === val ? 1 : 0.3 }}>{val}</div>
+                                        <div key={val} onClick={() => setSelectedHours(val)} style={{ ...selectorOptionStyle, opacity: selectedHours === val ? 1 : 0.3 }}>{val}</div>
                                     ))}
                                 </div>
-                                <div style={{ fontSize: "9px", cursor: "pointer" }}>
+                                <div style={selectorOptionStyle}>
                                     {[10, 20, 30].map(val => (
-                                        <div key={val} onClick={() => setSelectedMinutes(val)} style={{ opacity: selectedMinutes === val ? 1 : 0.3 }}>{val}</div>
+                                        <div key={val} onClick={() => setSelectedMinutes(val)} style={{ ...selectorOptionStyle, opacity: selectedMinutes === val ? 1 : 0.3 }}>{val}</div>
                                     ))}
                                 </div>
                             </div>
@@ -255,3 +181,102 @@ function SetTimmer() {
 }
 
 export default SetTimmer
+
+const containerStyle = {
+  width: "340px",
+  height: "210px",
+  margin: "10px 0",
+  background: "rgba(255, 255, 255, 0.04)",
+  borderRadius: "20px",
+  padding: "10px 20px",
+  color: "white",
+  fontFamily: "sans-serif",
+  WebkitBackdropFilter: "blur(16px)",
+  position: "relative",
+  clipPath: "path('M0,0 H320 C280,100 280,200 320,300 H0 Z')",
+};
+const addButtonStyle = {
+  padding: "3px 10px",
+  backgroundColor: "#d1d5db",
+  color: "#111",
+  borderRadius: "8px",
+  border: "none",
+  fontSize: "10px",
+  position: "absolute",
+  right: "90px",
+  top: "50px",
+  cursor: "pointer"
+};
+const controlsWrapperStyle = {
+  display: "flex",
+  justifyContent: "center",
+  gap: "15px",
+  position: "absolute",
+  bottom: "10px",
+  left: "10px",
+  margin: "auto"
+};
+const controlButtonStyle = {
+  padding: "6px 15px",
+  backgroundColor: "#d1d5db",
+  color: "#000",
+  borderRadius: "10px",
+  border: "none",
+  fontWeight: "bold",
+  cursor: "pointer"
+};
+const badgeStyle = {
+  position: "absolute",
+  bottom: "10px",
+  right: "70px",
+  backgroundColor: "#fff",
+  borderRadius: "50%",
+  padding: "6px",
+  width: "26px",
+  height: "26px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center"
+};
+const infoContainerStyle = {
+  position: "absolute",
+  left: "10px",
+  top: "10px"
+};
+const infoNameStyle = {
+  textAlign: "center",
+  fontSize: "16px",
+  fontWeight: "500",
+  marginBottom: "8px"
+};
+const timerWrapperStyle = {
+  position: "relative"
+};
+const timerCircleStyle = {
+  position: "relative",
+  width: "90px",
+  height: "90px",
+  borderRadius: "50%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center"
+};
+const timeTextStyle = {
+  fontWeight: "bold",
+  fontSize: "18px",
+  color: "white"
+};
+const durationTextStyle = {
+  fontSize: "10px",
+  color: "#d1d5db",
+  fontWeight: "normal"
+};
+const selectorsWrapperStyle = {
+  display: "flex",
+  gap: "10px",
+  marginTop: "2px"
+};
+const selectorOptionStyle = {
+  fontSize: "9px",
+  cursor: "pointer"
+};

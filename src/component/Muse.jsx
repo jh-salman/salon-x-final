@@ -19,22 +19,21 @@ function Muse() {
         top: '90%',
         left: '50%',
         transform: 'translateX(-50%)',
-        scale:(0.2)
       }}>
         <div
           ref={buttonRef}
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '10px',
-            padding: "20px 60px",
-            borderRadius: "50px",
+            gap: '2px',
+            padding: "4px 12px",
+            borderRadius: "10px",
             backgroundColor: "#0A0A0A",
-            border: "2px solid #302EFF",
-            boxShadow: "0 0 10px rgba(48, 46, 255, 0.8)",
+            border: "0.4px solid #302EFF",
+            boxShadow: "0 0 1px rgba(48, 46, 255, 0.5)",
             cursor: 'pointer',
             color: "#FF6826",
-            fontSize: "24px",
+            fontSize: "4.8px",
             fontWeight: "bold",
             fontFamily: "sans-serif",
             userSelect: "none",
@@ -46,7 +45,7 @@ function Muse() {
             style={{
               position: "absolute",
               width: "100%",
-              height: "50px",
+              height: "10px",
               top: 0,
               left: 0,
               zIndex: 1,
@@ -78,13 +77,13 @@ function Muse() {
               style={{
                 position: "absolute",
                 left: `${ballOffset}px`,
-                width: "60px",
-                height: "60px",
+                width: "12px",
+                height: "12px",
                 borderRadius: "50%",
                 background: "radial-gradient(circle at center, #FF6826, #FFA500)",
-                boxShadow: "0 0 20px #FF6826, 0 0 40px rgba(255, 104, 38, 0.5)",
+                boxShadow: "0 0 2px #FF6826, 0 0 4px rgba(255, 104, 38, 0.3)",
                 cursor: "grab",
-                top: "5px",
+                top: "1px",
               }}
             />
           </div>

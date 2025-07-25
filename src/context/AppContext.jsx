@@ -11,7 +11,8 @@ export const AppProvider = ({ children }) => {
   const [isTimer, setIsTimer] = useState(false);
   const [openTimerSlider, setOpenTimerSlider] = useState(false);
   const [layoutSlide, setLayoutSlide] = useState(false);
-  const [thermoValue, setThermoValue] = useState(0)
+  const [thermoValue, setThermoValue] = useState(0);
+  const [ballAtRight, setBallAtRight] = useState(false);
   return (
     <AppContext.Provider
       value={{
@@ -29,7 +30,10 @@ export const AppProvider = ({ children }) => {
         setOpenTimerSlider,
         layoutSlide, 
         setLayoutSlide,
-        thermoValue, setThermoValue
+        thermoValue, 
+        setThermoValue,
+        ballAtRight,
+        setBallAtRight
       }}
     >
       {children}

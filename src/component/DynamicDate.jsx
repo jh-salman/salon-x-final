@@ -7,23 +7,31 @@ const DynamicDate = () => {
   const dayNumber = today.getDate(); // e.g. 9
 
   return (
-    <div onClick={() => navigate("/screen3")}  style={{
-      // backg'round:"red",
-      zIndex: "1000",
-      
-      position: 'absolute',
-      cursor: "pointer",
-      top: '20px',
-      right: '10px',
-      fontSize: '16px',
-      fontWeight: 'bold',
-      textAlign: 'right',
-      color:"#fff"
-    }}>
+    <div onClick={() => navigate("/screen3")} style={wrapperStyle}>
       {dayName}<br />
-      <p  style={{ fontWeight: "bold", paddingLeft: "10px", margin: 0 ,cursor:"pointer"}}>{dayNumber}</p>
+      <p style={dayNumberStyle}>{dayNumber}</p>
     </div>
   );
+};
+
+
+const wrapperStyle = {
+  zIndex: "1000",
+  position: "absolute",
+  cursor: "pointer",
+  top: "20px",
+  right: "10px",
+  fontSize: "16px",
+  fontWeight: "bold",
+  textAlign: "right",
+  color: "#fff"
+};
+
+const dayNumberStyle = {
+  fontWeight: "bold",
+  paddingLeft: "10px",
+  margin: 0,
+  cursor: "pointer"
 };
 
 export default DynamicDate;

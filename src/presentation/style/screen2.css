@@ -64,7 +64,7 @@
 }
 
 .middle-card-section {
-     margin-top: 30px;
+    margin-top: 30px;
     position: absolute;
     top: 20%;
     left: 0%;
@@ -74,7 +74,7 @@
 }
 
 .consultation-card-wrapper {
-   background: linear-gradient(to bottom, #323232, #282727);
+    background: linear-gradient(to bottom, #323232, #282727);
     padding: 1px;
     position: relative;
     border-radius: 12px;
@@ -91,7 +91,7 @@
     padding: 10px;
     border-radius: 12px;
     /* background: linear-gradient(99.11deg, rgba(29, 18, 16, 0) 42.5%, rgba(217, 241, 244, 0.32) 108.55%); */
-   background: linear-gradient(180deg, #1a1a1f 0%, #000000 100%);
+    background: linear-gradient(180deg, #1a1a1f 0%, #000000 100%);
     /* border: 1px solid white; */
 }
 
@@ -117,18 +117,17 @@
 }
 
 .consultation-notes {
-    margin-top: 10px;
     font-family: Lato;
     font-weight: 400;
     font-style: Regular;
-    font-size: 12px;
-    line-height: 9.99px;
-    width: 288px;
-    padding-bottom: 5px;
-    color: white;
+    font-size: 11px;
+    width: 250px;
+    
+    color: #dddbdb;
+
 }
 
-.services-card-wrapper{
+.services-card-wrapper {
     margin-top: 15px;
     background: linear-gradient(to bottom, #323232, #282727);
     padding: 1px;
@@ -143,7 +142,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-  background: linear-gradient(180deg, #1a1a1f 0%, #000000 100%);
+    background: linear-gradient(180deg, #1a1a1f 0%, #000000 100%);
     border-radius: 12px;
     /* border: 1px solid white; */
 }
@@ -213,21 +212,23 @@
     border-radius: 50%;
     background-color: white;
 }
+
 .home-care-wrapper {
-      background: linear-gradient(to bottom, #323232, #282727);
+    background: linear-gradient(to bottom, #323232, #282727);
     padding: 1px;
     position: absolute;
     border-radius: 12px;
     width: 335px;
     height: 118px;
-     top: 500px;
-    
+    top: 500px;
+
     left: 10px;
-}   
+}
+
 .homecare-card {
     /* margin-top: 20px; */
     /* position: absolute; */
-   
+
     width: 100%;
     height: 100%;
     padding: 0 10px;
@@ -275,33 +276,37 @@
     left: -10px;
     /* transform: translateX(-50%); */
 }
+
 .social-link-button {
     position: absolute;
     bottom: 2%;
     left: 20%;
 }
+
 .performance-bar {
-  position: absolute;
-  top: 170px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50%;
-  height: 2px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  z-index: 5;
+    position: absolute;
+    top: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 5;
 }
 
 .performance-dot {
-  width: 10px;
-  height: 10px;
-  background-color: #1E90FF; /* blue */
-  border-radius: 50%;
-  position: absolute;
-  top: -4px;
-  left: 0; /* will be dynamically updated via JS */
-  transition: left 0.3s ease;
+    width: 10px;
+    height: 10px;
+    background-color: #1E90FF;
+    /* blue */
+    border-radius: 50%;
+    position: absolute;
+    top: -4px;
+    left: 0;
+    /* will be dynamically updated via JS */
+    transition: left 0.3s ease;
 }

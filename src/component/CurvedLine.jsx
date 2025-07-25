@@ -1,15 +1,8 @@
-import React from 'react'
-import Screen2 from '../presentation/screen/Screen2'
+
 
 function CurvedLine() {
     return (
-        <div style={
-            {
-                // position:"absolute",
-                // bottom:"0",
-                // right:"-10"
-            }
-        }>
+        <div>
             <svg width="398" height="865" viewBox="0 0 622 1326" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <filter id="blurFill" x="-50%" y="-50%" width="200%" height="200%">
@@ -32,8 +25,6 @@ function CurvedLine() {
                     stroke="url(#paint0_linear_124_63)"
                     strokeWidth="5" />
             </svg>
-            
-
         </div>
     )
 }
