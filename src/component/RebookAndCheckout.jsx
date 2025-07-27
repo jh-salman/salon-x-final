@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function RebookAndCheckout({ onClick }) {
   const [rebookClicked, setRebookClicked] = useState(false);
   const [checkoutClicked, setCheckoutClicked] = useState(false);
+
+  const navigate = useNavigate()
 
   const handleRebookClick = (e) => {
     setRebookClicked(true);
@@ -12,6 +15,7 @@ function RebookAndCheckout({ onClick }) {
   const handleCheckoutClick = (e) => {
     setCheckoutClicked(true);
     if (onClick) onClick(e);
+    navigate("/checkout")
   };
 
   return (
@@ -50,7 +54,7 @@ function RebookAndCheckout({ onClick }) {
         Rebook
       </button>
 
-      <button
+      <button 
         style={{
           background: checkoutClicked
             ? 'linear-gradient(to bottom, #1D1D1D, rgba(241, 185, 0, 0.61))'
