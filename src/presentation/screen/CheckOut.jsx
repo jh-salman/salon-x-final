@@ -51,7 +51,7 @@ function CheckOut() {
                                 <p style={{ margin: 0, fontSize: "13px", opacity: 0.8, textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>$20</p>
                             </div>
                             <div style={{ display: "flex", justifyContent: "space-between" }}>
-                                <p style={{ margin: 0, fontSize: "13px", opacity: 0.8, textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>L3VE13 Wax</p>
+                                <p style={{ margin: 0, fontSize: "13px", opacity: 0.8, textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>L3VEL3 Wax</p>
                                 <p style={{ margin: 0, fontSize: "13px", opacity: 0.8, textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>$25</p>
                             </div>
                         </div>
@@ -60,7 +60,7 @@ function CheckOut() {
 
                         <div>
                             <h3 style={{ margin: 0, fontSize: "16px", fontWeight: "600", opacity: 0.85, textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>Next Appointment</h3>
-                            <p style={{ margin: "4px 0", fontSize: "13px", opacity: 0.8, textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>Sept 11, 2025</p>
+                            <p style={{ margin: "4px 0", fontSize: "13px", opacity: 0.8, textShadow: "1px 1px 2px rgba(0,0,0,0.5)" }}>Sept 11, 2025   <span style={{paddingLeft:"7px"}}> 2:30 PM</span>    </p>
                         </div>
 
                         <div style={{ borderBottom: "1px solid rgba(255,255,255,0.2)", margin: "16px 0" }} />
@@ -88,8 +88,9 @@ function CheckOut() {
                         background: "rgba(255, 255, 255, 0.05)",
                         backdropFilter: "blur(20px)",
                         WebkitBackdropFilter: "blur(20px)",
-                        border: "1.5px solid rgba(255, 255, 255, 0.25)",
-                        boxShadow: "0 0 30px rgba(255, 255, 255, 0.1)",
+                         boxShadow: "-6px 8px 400px 27px rgba(0,0,0,0.75)",
+                        webkitBoxShadow: "-6px 8px 400px 27px rgba(0,0,0,0.75)",
+                        mozBoxShadow:" -6px 8px 400px 27px rgba(0,0,0,0.75)",
                         color: "white",
                         fontFamily: "sans-serif",
                         position: "",
